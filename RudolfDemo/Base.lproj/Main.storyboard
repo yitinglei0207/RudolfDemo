@@ -22,7 +22,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4c6-3N-Z3H" kind="push" id="iBi-5N-3JT"/>
+                                    <action selector="fbLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fRJ-50-pc4"/>
+                                    <segue destination="4c6-3N-Z3H" kind="push" id="dng-Mm-iYi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-Be-9Sw">
@@ -30,6 +31,9 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="fbLogout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Pq-ua-90q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -412,7 +416,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iBi-5N-3JT"/>
+        <segue reference="dng-Mm-iYi"/>
         <segue reference="Jhd-H2-9S6"/>
     </inferredMetricsTieBreakers>
 </document>
