@@ -10,11 +10,12 @@
 		4212E4411AEA0DDF004F136C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4401AEA0DDF004F136C /* main.m */; };
 		4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4431AEA0DDF004F136C /* AppDelegate.m */; };
 		4212E4471AEA0DDF004F136C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4461AEA0DDF004F136C /* ViewController.m */; };
-		4212E44A1AEA0DDF004F136C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4212E4481AEA0DDF004F136C /* Main.storyboard */; };
 		4212E44C1AEA0DDF004F136C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4212E44B1AEA0DDF004F136C /* Images.xcassets */; };
 		4212E44F1AEA0DDF004F136C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */; };
 		4212E45B1AEA0DDF004F136C /* RudolfDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E45A1AEA0DDF004F136C /* RudolfDemoTests.m */; };
 		4212E46F1AEA131C004F136C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E46E1AEA131C004F136C /* MapViewController.m */; };
+		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
+		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21272BC2987437B49D168F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +38,6 @@
 		4212E4431AEA0DDF004F136C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4212E4451AEA0DDF004F136C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4212E4461AEA0DDF004F136C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4212E4491AEA0DDF004F136C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4212E44B1AEA0DDF004F136C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4212E44E1AEA0DDF004F136C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4212E4541AEA0DDF004F136C /* RudolfDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RudolfDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +45,8 @@
 		4212E45A1AEA0DDF004F136C /* RudolfDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RudolfDemoTests.m; sourceTree = "<group>"; };
 		4212E46D1AEA131C004F136C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4212E46E1AEA131C004F136C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */,
 				D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,9 +98,9 @@
 				4212E4431AEA0DDF004F136C /* AppDelegate.m */,
 				4212E4451AEA0DDF004F136C /* ViewController.h */,
 				4212E4461AEA0DDF004F136C /* ViewController.m */,
-				4212E4481AEA0DDF004F136C /* Main.storyboard */,
 				4212E44B1AEA0DDF004F136C /* Images.xcassets */,
 				4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */,
+				42E078451AF603B2000DF533 /* Main.storyboard */,
 				4212E43E1AEA0DDF004F136C /* Supporting Files */,
 				4212E46D1AEA131C004F136C /* MapViewController.h */,
 				4212E46E1AEA131C004F136C /* MapViewController.m */,
@@ -143,6 +146,7 @@
 		ADD8B3201442DFBF233D7833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42E078481AF709A4000DF533 /* MapKit.framework */,
 				CC21272BC2987437B49D168F /* libPods.a */,
 			);
 			name = Frameworks;
@@ -230,7 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4212E44A1AEA0DDF004F136C /* Main.storyboard in Resources */,
+				42E078471AF603B2000DF533 /* Main.storyboard in Resources */,
 				4212E44F1AEA0DDF004F136C /* LaunchScreen.xib in Resources */,
 				4212E44C1AEA0DDF004F136C /* Images.xcassets in Resources */,
 			);
@@ -309,20 +313,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4212E4481AEA0DDF004F136C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4212E4491AEA0DDF004F136C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4212E44E1AEA0DDF004F136C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		42E078451AF603B2000DF533 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42E078461AF603B2000DF533 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -414,6 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RudolfDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -425,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RudolfDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

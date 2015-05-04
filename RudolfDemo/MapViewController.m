@@ -7,8 +7,12 @@
 //
 
 #import "MapViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface MapViewController ()
+{
+    CLLocationManager *locationManager;
+}
 
 @end
 
@@ -17,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    locationManager = [[CLLocationManager alloc]init];
+    [locationManager requestWhenInUseAuthorization];
+    
 }
 
 - (void)didReceiveMemoryWarning {
