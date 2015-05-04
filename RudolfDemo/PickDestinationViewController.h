@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickDestinationViewController : UIViewController
+@interface PickDestinationViewController : UIViewController<UIPickerViewDelegate , UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *destinationPick;
 @property (weak, nonatomic) IBOutlet UILabel *pickUpFrom;
 @property (nonatomic,strong) NSString *receivedSelectionText;
 @end
