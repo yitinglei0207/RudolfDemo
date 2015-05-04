@@ -8,13 +8,13 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK.h>
-#import "ViewController.h"
+#import "LoginViewController.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +30,7 @@
     
     [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error){
         if(!user){
+            //login failed
             NSString *errorMessage = nil;
             if(!error){
                 NSLog(@"User cancelled login");
@@ -40,7 +41,9 @@
             }
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"login error" message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"dismiss", nil];
             [alert show];
-        }else{
+        }
+        else{
+            //login success
             if (user.isNew) {
                 NSLog(@"user FB signed up and logged in");
                 [self saveUserDataToParse];
@@ -48,6 +51,8 @@
                 NSLog(@"logged in!");
                 [self saveUserDataToParse];
             }
+            UIViewController *menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuNaviController"];
+            [self presentViewController:menuViewController animated:YES completion:nil];
             
         }
     }];

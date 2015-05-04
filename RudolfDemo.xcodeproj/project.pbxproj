@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		4212E4411AEA0DDF004F136C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4401AEA0DDF004F136C /* main.m */; };
 		4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4431AEA0DDF004F136C /* AppDelegate.m */; };
-		4212E4471AEA0DDF004F136C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4461AEA0DDF004F136C /* ViewController.m */; };
+		4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E4461AEA0DDF004F136C /* LoginViewController.m */; };
 		4212E44C1AEA0DDF004F136C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4212E44B1AEA0DDF004F136C /* Images.xcassets */; };
 		4212E44F1AEA0DDF004F136C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */; };
 		4212E45B1AEA0DDF004F136C /* RudolfDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E45A1AEA0DDF004F136C /* RudolfDemoTests.m */; };
 		4212E46F1AEA131C004F136C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E46E1AEA131C004F136C /* MapViewController.m */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
+		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
 		D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21272BC2987437B49D168F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +37,8 @@
 		4212E4401AEA0DDF004F136C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4212E4421AEA0DDF004F136C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4212E4431AEA0DDF004F136C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4212E4451AEA0DDF004F136C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4212E4461AEA0DDF004F136C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4212E4451AEA0DDF004F136C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4212E4461AEA0DDF004F136C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4212E44B1AEA0DDF004F136C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4212E44E1AEA0DDF004F136C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4212E4541AEA0DDF004F136C /* RudolfDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RudolfDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,8 @@
 		4212E46E1AEA131C004F136C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		42E0784B1AF75060000DF533 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,14 +99,16 @@
 			children = (
 				4212E4421AEA0DDF004F136C /* AppDelegate.h */,
 				4212E4431AEA0DDF004F136C /* AppDelegate.m */,
-				4212E4451AEA0DDF004F136C /* ViewController.h */,
-				4212E4461AEA0DDF004F136C /* ViewController.m */,
+				4212E4451AEA0DDF004F136C /* LoginViewController.h */,
+				4212E4461AEA0DDF004F136C /* LoginViewController.m */,
 				4212E44B1AEA0DDF004F136C /* Images.xcassets */,
 				4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */,
 				42E078451AF603B2000DF533 /* Main.storyboard */,
 				4212E43E1AEA0DDF004F136C /* Supporting Files */,
 				4212E46D1AEA131C004F136C /* MapViewController.h */,
 				4212E46E1AEA131C004F136C /* MapViewController.m */,
+				42E0784A1AF75060000DF533 /* MainMenuViewController.h */,
+				42E0784B1AF75060000DF533 /* MainMenuViewController.m */,
 			);
 			path = RudolfDemo;
 			sourceTree = "<group>";
@@ -287,10 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4212E4471AEA0DDF004F136C /* ViewController.m in Sources */,
+				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
+				42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
