@@ -17,18 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OU-bf-zdM">
-                                <rect key="frame" x="89" y="188" width="143" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OU-bf-zdM">
+                                <rect key="frame" x="16" y="180" width="288" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="fbLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fRJ-50-pc4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-Be-9Sw">
-                                <rect key="frame" x="137" y="412" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-Be-9Sw">
+                                <rect key="frame" x="16" y="410" width="288" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -36,13 +40,21 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2OU-bf-zdM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9e5-89-bBA"/>
+                            <constraint firstItem="wZP-Be-9Sw" firstAttribute="top" secondItem="2OU-bf-zdM" secondAttribute="bottom" constant="200" id="RNC-M6-csE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wZP-Be-9Sw" secondAttribute="trailing" id="TUj-LP-9Y7"/>
+                            <constraint firstItem="2OU-bf-zdM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="160" id="VAz-PX-Y7B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2OU-bf-zdM" secondAttribute="trailing" id="h67-qo-bUN"/>
+                            <constraint firstItem="wZP-Be-9Sw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pKi-nc-tZl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w0E-Yl-xHB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="-324"/>
+            <point key="canvasLocation" x="1280" y="-316"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="ZK6-sg-QbE">
@@ -243,12 +255,12 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-TR-42L">
                                 <rect key="frame" x="16" y="530" width="288" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Select Position">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mGf-kE-arL" kind="push" id="9HH-S7-SHd"/>
+                                    <action selector="selectPostionButtonPressed:" destination="mbq-sa-CiY" eventType="touchUpInside" id="No9-2D-9PA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -268,16 +280,17 @@
                     <navigationItem key="navigationItem" title="PickUp Point" id="0ew-Xh-I6D"/>
                     <connections>
                         <outlet property="map" destination="kc8-GJ-a8c" id="qBh-66-eY0"/>
+                        <segue destination="mGf-kE-arL" kind="push" identifier="selectPosition" id="hL6-rF-52T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbw-dN-A2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="45"/>
+            <point key="canvasLocation" x="2127" y="45"/>
         </scene>
         <!--Pick Destination-->
         <scene sceneID="D2d-Sh-fRz">
             <objects>
-                <viewController id="mGf-kE-arL" sceneMemberID="viewController">
+                <viewController id="mGf-kE-arL" customClass="PickDestinationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8m9-Ws-lf8"/>
                         <viewControllerLayoutGuide type="bottom" id="Xht-6X-jy1"/>
@@ -286,15 +299,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-R6-1wL">
-                                <rect key="frame" x="35" y="116" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSb-g3-cP1">
-                                <rect key="frame" x="0.0" y="145" width="320" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3o-Lh-wmA">
                                 <rect key="frame" x="137" y="500" width="37" height="30"/>
                                 <state key="normal" title="Done">
@@ -304,10 +308,39 @@
                                     <segue destination="m3O-Nf-GXa" kind="push" id="VTB-x0-76y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blM-58-Pp7">
+                                <rect key="frame" x="35" y="89" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-FG-4pr">
+                                <rect key="frame" x="16" y="134" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-R6-1wL">
+                                <rect key="frame" x="35" y="234" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSb-g3-cP1">
+                                <rect key="frame" x="0.0" y="263" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qQO-FG-4pr" firstAttribute="top" secondItem="8m9-Ws-lf8" secondAttribute="bottom" constant="70" id="0Rm-z4-77c"/>
+                            <constraint firstItem="qQO-FG-4pr" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" id="Bz8-6v-La5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qQO-FG-4pr" secondAttribute="trailing" id="Een-Qe-f5R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pick Destination" id="kMR-7M-S1V"/>
+                    <connections>
+                        <outlet property="pickUpFrom" destination="qQO-FG-4pr" id="Yve-4O-pBP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lB7-vZ-v2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

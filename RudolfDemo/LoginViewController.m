@@ -26,7 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)fbLogin:(id)sender {
-    NSArray *permissionArray = @[ @"user_about_me", @"user_relationships",@"user_birthday",@"email"];
+    NSArray *permissionArray = @[ @"user_about_me", @"user_birthday",@"email"];
     
     [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error){
         if(!user){

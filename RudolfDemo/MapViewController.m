@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "PickDestinationViewController.h"
+
 
 @interface MapViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 {
@@ -17,7 +19,8 @@
     
     
 }
-@property (nonatomic,strong)CLGeocoder *geoCoder;
+@property (nonatomic,strong) CLGeocoder *geoCoder;
+@property (nonatomic,strong) NSString *addressReturn;
 @end
 
 @implementation MapViewController
@@ -63,6 +66,18 @@
 
 }
 
+- (IBAction)selectPostionButtonPressed:(id)sender {
+    [self getAddressFromCoordinate];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"selectPosition"]) {
+        PickDestinationViewController *destination = segue.destinationViewController;
+        destination.receivedSelectionText = _addressReturn;
+    }
+    
+}
 
 #pragma mark - custom map methods
 -(void)getCoordinateFromAddress:(NSString*)address{
@@ -79,7 +94,10 @@
     }];
 }
 -(void)getAddressFromCoordinate{
+    
+    //__block NSString *addressReturn;
     [self.geoCoder reverseGeocodeLocation:self.map.userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        //NSString *addressReturn;
         if (error == nil && placemarks.count >0) {
             CLPlacemark *placeMark = placemarks[0];
             //            for (NSString *key in placeMark.addressDictionary) {
@@ -88,13 +106,18 @@
             //            }
             NSArray *addressArray = [placeMark.addressDictionary objectForKey:@"FormattedAddressLines"];
             for (NSString *address in addressArray) {
-                NSLog(@"address1: %@",address);
-                
+                NSLog(@"address: %@",address);
+                _addressReturn = address;
             }
+            NSLog(@"addressReturn: %@",_addressReturn);
+            [self performSegueWithIdentifier:@"selectPosition" sender:self];
+            
         }else{
             NSLog(@"%@",error);
         }
     }];
+    
+    
 }
 /*
 #pragma mark - Navigation

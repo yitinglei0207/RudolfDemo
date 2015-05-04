@@ -17,6 +17,7 @@
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
+		42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784E1AF76297000DF533 /* PickDestinationViewController.m */; };
 		D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21272BC2987437B49D168F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		42E0784B1AF75060000DF533 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		42E0784D1AF76297000DF533 /* PickDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDestinationViewController.h; sourceTree = "<group>"; };
+		42E0784E1AF76297000DF533 /* PickDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDestinationViewController.m; sourceTree = "<group>"; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +112,8 @@
 				4212E46E1AEA131C004F136C /* MapViewController.m */,
 				42E0784A1AF75060000DF533 /* MainMenuViewController.h */,
 				42E0784B1AF75060000DF533 /* MainMenuViewController.m */,
+				42E0784D1AF76297000DF533 /* PickDestinationViewController.h */,
+				42E0784E1AF76297000DF533 /* PickDestinationViewController.m */,
 			);
 			path = RudolfDemo;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
+				42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */,
 				42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
