@@ -19,6 +19,7 @@
 		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
 		42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784E1AF76297000DF533 /* PickDestinationViewController.m */; };
 		42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078511AF77C4F000DF533 /* ConfirmationViewController.m */; };
+		42E078581AF86429000DF533 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078571AF86429000DF533 /* MyAnnotation.m */; };
 		D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21272BC2987437B49D168F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		42E0784E1AF76297000DF533 /* PickDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDestinationViewController.m; sourceTree = "<group>"; };
 		42E078501AF77C4F000DF533 /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
 		42E078511AF77C4F000DF533 /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
+		42E078561AF86429000DF533 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		42E078571AF86429000DF533 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +122,8 @@
 				42E0784E1AF76297000DF533 /* PickDestinationViewController.m */,
 				42E078501AF77C4F000DF533 /* ConfirmationViewController.h */,
 				42E078511AF77C4F000DF533 /* ConfirmationViewController.m */,
+				42E078561AF86429000DF533 /* MyAnnotation.h */,
+				42E078571AF86429000DF533 /* MyAnnotation.m */,
 			);
 			path = RudolfDemo;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			files = (
 				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
+				42E078581AF86429000DF533 /* MyAnnotation.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
 				42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */,

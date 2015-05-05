@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "PickDestinationViewController.h"
-
+#import "MyAnnotation.h"
 
 @interface MapViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 {
@@ -53,16 +53,26 @@
     if (isFirstGetLocation== NO) {
         isFirstGetLocation = YES;
         //zoom into user location in 400m*400m
+        
+        
+
+
+        //MKCoordinateRegion mapRegion;
+//        mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
+//        mapRegion.center.latitude  = ( 25.033408 + mapView.userLocation.coordinate.latitude)/2;
+//        mapRegion.center.longitude = (121.564009 + mapView.userLocation.coordinate.longitude)/2;
+//    
+//        MKCoordinateSpan mapspan;
+//        mapspan.latitudeDelta = ABS(25.033408 - userLocation.location.coordinate.latitude)*1.5;
+//        mapspan.longitudeDelta = ABS(121.564009 - userLocation.location.coordinate.longitude)*1.5;
+//        mapRegion.span = mapspan;
+//        
+        
         [mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400) animated: YES];
         
-        //MKCoordinateRegion mapRegion;
-        //mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
-//        mapRegion.center = mapView.userLocation.coordinate;
-//        MKCoordinateSpan mapspan;
-//        mapspan.latitudeDelta = 0.01;
-//        mapspan.longitudeDelta = 0.01;
-//        mapRegion.span = mapspan;
     }
+    
+    [self addAnnotation];
 
 }
 
@@ -119,6 +129,38 @@
     
     
 }
+
+
+
+-(void) addAnnotation{
+    CLLocationCoordinate2D currentCoordinate = CLLocationCoordinate2DMake(self.map.userLocation.coordinate.latitude, self.map.userLocation.coordinate.longitude);
+    MyAnnotation *currentAnnotation = [[MyAnnotation alloc] initWithCoordinate:currentCoordinate title:@"您現在位置" subtitle:@"拉動選取取貨點"];
+    [self.map addAnnotation:currentAnnotation];
+    
+}
+
+-(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    MKPinAnnotationView *annoView;
+    if ([annotation isKindOfClass:[MyAnnotation class]]) {
+        annoView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin" ];
+        if(annoView == nil){
+            annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+            annoView.pinColor = MKPinAnnotationColorGreen;
+            annoView.canShowCallout = YES;
+            
+            annoView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            annoView.draggable = YES;
+            
+        }
+    }
+    return annoView;
+}
+
+
+-(void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    NSLog(@"tapped");
+}
+
 /*
 #pragma mark - Navigation
 

@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmationViewController.h"
+#import <Parse/Parse.h>
 
 @interface ConfirmationViewController ()
 
@@ -19,11 +20,28 @@
     // Do any additional setup after loading the view.
     self.fromPickupLabel.text = self.receivedPickupSpot;
     self.toDestinationLabel.text = self.receivedDestination;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)confirmButtonPressed:(id)sender {
+    PFObject *delivery = [PFObject objectWithClassName:@"Delivery"];
+    delivery[@"PickupSpot"]  = _fromPickupLabel.text;
+    delivery[@"Destination"] = _toDestinationLabel.text;
+    delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
+    delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
+    
+    [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"The object has been saved.");
+        } else {
+            NSLog(@"There was a problem, check error.description");
+        }
+    }];
 }
 
 /*
