@@ -26,7 +26,7 @@
     originalPickerY = self.view.frame.size.height;
     _pickUpFrom.text = _receivedSelectionText;
     
-    _destinationText.inputView = [self createPicker];
+    //_destinationText.inputView = [self createPicker];
     
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -57,7 +57,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"toConfrimation"]) {
         ConfirmationViewController *destination = segue.destinationViewController;
-        destination.receivedDestination = pickerArray[pickerIndex];
+        destination.receivedDestination = _destinationText.text;
         destination.receivedPickupSpot = _receivedSelectionText;
     }
 }
@@ -85,7 +85,7 @@
 
 
 - (UIView*)createPicker{
-    pickerArray = @[@"1",@"2", @"3"];
+    pickerArray = @[@"Airport",@"Hotel", @"Home"];
     
     pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200)];
     pickerView.backgroundColor = [UIColor colorWithRed:109.0/255.0 green:110.0/255.0 blue:120.0/255.0 alpha:1];

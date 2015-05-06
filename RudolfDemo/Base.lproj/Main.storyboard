@@ -74,23 +74,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylj-6Z-9rJ">
-                                <rect key="frame" x="16" y="224" width="288" height="44"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ggo-Ij-bOR"/>
-                                </constraints>
-                                <state key="normal" title="New Delivery">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mbq-sa-CiY" kind="push" id="TIB-Ya-7J4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Dk-Whi">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Dk-Whi">
                                 <rect key="frame" x="16" y="308" width="288" height="44"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9Vt-Yx-RRf"/>
                                 </constraints>
@@ -102,8 +88,21 @@
                                     <segue destination="IyL-4V-Rki" kind="push" id="ArW-uD-Bas"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylj-6Z-9rJ">
+                                <rect key="frame" x="16" y="180" width="288" height="115"/>
+                                <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="E1c-CY-ZYq"/>
+                                </constraints>
+                                <state key="normal" title="New Delivery" image="luggageOnCar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mbq-sa-CiY" kind="push" id="TIB-Ya-7J4"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uAe-Dk-Whi" firstAttribute="leading" secondItem="CM6-35-aOG" secondAttribute="leadingMargin" id="Arf-SK-sGa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ylj-6Z-9rJ" secondAttribute="trailing" id="N38-s5-ra8"/>
@@ -114,6 +113,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D98-h7-xg9"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k89-my-Yra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,12 +255,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WYj-DI-8fE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kc8-GJ-a8c">
-                                <rect key="frame" x="0.0" y="64" width="320" height="458"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="502"/>
                                 <connections>
                                     <outlet property="delegate" destination="mbq-sa-CiY" id="tBj-ef-NEv"/>
                                 </connections>
@@ -285,7 +281,6 @@
                             <constraint firstAttribute="centerX" secondItem="hfL-TR-42L" secondAttribute="centerX" id="NfH-Ac-OHt"/>
                             <constraint firstItem="kc8-GJ-a8c" firstAttribute="leading" secondItem="8nf-Ef-GeH" secondAttribute="leadingMargin" constant="-16" id="mWy-Pg-QMX"/>
                             <constraint firstItem="kc8-GJ-a8c" firstAttribute="top" secondItem="L9d-Do-poM" secondAttribute="bottom" id="nft-gI-PYV"/>
-                            <constraint firstItem="hfL-TR-42L" firstAttribute="top" secondItem="kc8-GJ-a8c" secondAttribute="bottom" constant="8" id="oHp-YL-HAE"/>
                             <constraint firstItem="Ao4-Nm-rS3" firstAttribute="top" secondItem="hfL-TR-42L" secondAttribute="bottom" constant="8" id="uKz-Ea-mPw"/>
                         </constraints>
                     </view>
@@ -526,6 +521,9 @@
             <point key="canvasLocation" x="1280" y="366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="luggageOnCar" width="85" height="85"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

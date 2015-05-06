@@ -10,7 +10,9 @@
 #import <Parse/Parse.h>
 
 @interface ConfirmationViewController ()
-
+{
+    ;
+}
 @end
 
 @implementation ConfirmationViewController
@@ -21,6 +23,7 @@
     self.fromPickupLabel.text = self.receivedPickupSpot;
     self.toDestinationLabel.text = self.receivedDestination;
     
+
     
 }
 
@@ -29,12 +32,15 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)confirmButtonPressed:(id)sender {
+    NSNumber *serialNumber = [[NSNumber alloc]initWithInt:arc4random()%100000000];
+    NSLog(@"%@",serialNumber);
+    
     PFObject *delivery = [PFObject objectWithClassName:@"Delivery"];
     delivery[@"PickupSpot"]  = _fromPickupLabel.text;
     delivery[@"Destination"] = _toDestinationLabel.text;
     delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
     delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
-    
+    delivery[@"SerialNumber"] = serialNumber;
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"The object has been saved.");

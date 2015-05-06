@@ -16,6 +16,7 @@
 {
     CLLocationManager *locationManager;
     BOOL isFirstGetLocation;
+    MyAnnotation *currentAnnotation;
     
     
 }
@@ -71,8 +72,13 @@
         [mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400) animated: YES];
         
     }
+    UIImage *pinImage = [UIImage  imageNamed:@"pin"];
+    UIImageView *pinView = [[UIImageView alloc]initWithImage:pinImage];
+    [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
     
-    [self addAnnotation];
+    [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 13, self.map.frame.size.height/2 + 26, 26, 26)];
+    [self.view addSubview:pinView];
+    //[self addAnnotation];
 
 }
 
@@ -95,7 +101,7 @@
     [self.geoCoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
         if(error == nil && placemarks.count > 0){
             CLPlacemark *placeMark = placemarks[0];
-            NSLog(@"location: %f %f",placeMark.location.coordinate.latitude,placeMark.location.coordinate.longitude);
+            //NSLog(@"location: %f %f",placeMark.location.coordinate.latitude,placeMark.location.coordinate.longitude);
         }
         else{
             NSLog(@"%@", error);
@@ -104,9 +110,9 @@
     }];
 }
 -(void)getAddressFromCoordinate{
-    
+    CLLocation *mapCenter = [[CLLocation alloc]initWithLatitude:self.map.centerCoordinate.latitude longitude:self.map.centerCoordinate.longitude];
     //__block NSString *addressReturn;
-    [self.geoCoder reverseGeocodeLocation:self.map.userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
+    [self.geoCoder reverseGeocodeLocation:mapCenter completionHandler:^(NSArray *placemarks, NSError *error) {
         //NSString *addressReturn;
         if (error == nil && placemarks.count >0) {
             CLPlacemark *placeMark = placemarks[0];
@@ -116,10 +122,10 @@
             //            }
             NSArray *addressArray = [placeMark.addressDictionary objectForKey:@"FormattedAddressLines"];
             for (NSString *address in addressArray) {
-                NSLog(@"address: %@",address);
+                //NSLog(@"address: %@",address);
                 _addressReturn = address;
             }
-            NSLog(@"addressReturn: %@",_addressReturn);
+            //NSLog(@"addressReturn: %@",_addressReturn);
             [self performSegueWithIdentifier:@"selectPosition" sender:self];
             
         }else{
@@ -134,7 +140,7 @@
 
 -(void) addAnnotation{
     CLLocationCoordinate2D currentCoordinate = CLLocationCoordinate2DMake(self.map.userLocation.coordinate.latitude, self.map.userLocation.coordinate.longitude);
-    MyAnnotation *currentAnnotation = [[MyAnnotation alloc] initWithCoordinate:currentCoordinate title:@"您現在位置" subtitle:@"拉動選取取貨點"];
+    currentAnnotation = [[MyAnnotation alloc] initWithCoordinate:currentCoordinate title:@"您現在位置" subtitle:@"拉動選取取貨點"];
     [self.map addAnnotation:currentAnnotation];
     
 }
@@ -161,6 +167,36 @@
     NSLog(@"tapped");
 }
 
+-(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+
+    
+}
+/*
+- (void)mapView:(MKMapView *)mapViewregionDidChange Animated:(BOOL)animated{
+    CLLocationCoordinate2D center = self.map.centerCoordinate;
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:center.latitude longitude:center.longitude];
+    currentAnnotation.coordinate = location.coordinate;
+    
+    
+    //CLLocation *plocation = [[CLLocation alloc] initWithLatitude:currentAnnotation.coordinate.latitude longitude:currentAnnotation.coordinate.longitude];
+    
+    //pinLocation = plocation;
+//    [_geoCoder reverseGeocodeLocation:plocation completionHandler:
+//     ^(NSArray *placemarks, NSError *error) {
+//         if(error ==nil && [placemarks count] > 0){
+//             placemark = [placemarks lastObject];
+//             //self.addressField.hidden = NO;
+//             //self.addressField.text = [NSString stringWithFormat:@"%@ %@, %@",  placemark.thoroughfare, placemark.subThoroughfare, placemark.locality];
+//             //NSLog(@"thoroughfare %@, subThoroughfare %@, locality %@", placemark.thoroughfare, placemark.subThoroughfare, placemark.locality);
+//             //NSString *undesired = @"(null)";
+//             //NSString *desired   = @"";
+//             
+//             //self.addressField.text = [self.addressField.text stringByReplacingOccurrencesOfString:undesired withString:desired];
+//             
+//         }
+//     }];
+}
+*/
 /*
 #pragma mark - Navigation
 
