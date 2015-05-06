@@ -59,6 +59,7 @@
 		42E078511AF77C4F000DF533 /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		42E078561AF86429000DF533 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		42E078571AF86429000DF533 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		42E078901AF8D140000DF533 /* pickerViewApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pickerViewApplication.h; sourceTree = "<group>"; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +121,7 @@
 				42E0784B1AF75060000DF533 /* MainMenuViewController.m */,
 				42E0784D1AF76297000DF533 /* PickDestinationViewController.h */,
 				42E0784E1AF76297000DF533 /* PickDestinationViewController.m */,
+				42E078901AF8D140000DF533 /* pickerViewApplication.h */,
 				42E078501AF77C4F000DF533 /* ConfirmationViewController.h */,
 				42E078511AF77C4F000DF533 /* ConfirmationViewController.m */,
 				42E078561AF86429000DF533 /* MyAnnotation.h */,

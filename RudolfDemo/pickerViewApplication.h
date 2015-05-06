@@ -1,67 +1,18 @@
 //
-//  PickDestinationViewController.m
-//  RudolfDemo
+//  pickerViewApplication.h
+//  
 //
-//  Created by Jason Lei on 2015/5/4.
+//  Created by Jason Lei on 2015/5/5.
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "PickDestinationViewController.h"
-#import "ConfirmationViewController.h"
-@interface PickDestinationViewController ()
+
 {
     NSArray *pickerArray;
     NSInteger pickerIndex;
     NSInteger originalPickerY;
     UIView *pickerView;
 }
-@end
-
-@implementation PickDestinationViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    originalPickerY = self.view.frame.size.height;
-    _pickUpFrom.text = _receivedSelectionText;
-    
-    _destinationText.inputView = [self createPicker];
-    
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-    // The number of columns of data
-}
-
-
-
-- (IBAction)doneSelectingDestination:(id)sender {
-    [self performSegueWithIdentifier:@"toConfrimation" sender:self];
-    
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"toConfrimation"]) {
-        ConfirmationViewController *destination = segue.destinationViewController;
-        destination.receivedDestination = pickerArray[pickerIndex];
-        destination.receivedPickupSpot = _receivedSelectionText;
-    }
-}
-
 
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
@@ -133,14 +84,3 @@
 -(void)dismissKeyboard {
     [_destinationText resignFirstResponder];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-@end

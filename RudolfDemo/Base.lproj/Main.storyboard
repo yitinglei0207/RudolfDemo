@@ -326,28 +326,24 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blM-58-Pp7">
-                                <rect key="frame" x="35" y="84" width="96" height="21"/>
+                                <rect key="frame" x="16" y="79" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-FG-4pr">
-                                <rect key="frame" x="16" y="108" width="288" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-FG-4pr">
+                                <rect key="frame" x="16" y="108" width="288" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSb-g3-cP1">
-                                <rect key="frame" x="0.0" y="556" width="320" height="162"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ak4-1y-hHW">
-                                <rect key="frame" x="112" y="166" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ak4-1y-hHW">
+                                <rect key="frame" x="16" y="195" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-R6-1wL">
-                                <rect key="frame" x="35" y="137" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Destination:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-R6-1wL">
+                                <rect key="frame" x="16" y="160" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -356,26 +352,23 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qQO-FG-4pr" firstAttribute="top" secondItem="8m9-Ws-lf8" secondAttribute="bottom" constant="44" id="0Rm-z4-77c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ak4-1y-hHW" secondAttribute="trailing" constant="95" id="1Sx-Ic-4SQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ak4-1y-hHW" secondAttribute="trailing" id="1Sx-Ic-4SQ"/>
                             <constraint firstItem="blM-58-Pp7" firstAttribute="top" secondItem="8m9-Ws-lf8" secondAttribute="bottom" constant="20" id="9bT-C9-912"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iSb-g3-cP1" secondAttribute="trailing" constant="-16" id="9cq-iX-IYg"/>
                             <constraint firstItem="blM-58-Pp7" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" constant="19" id="Avg-jw-GX1"/>
                             <constraint firstItem="qQO-FG-4pr" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" id="Bz8-6v-La5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qQO-FG-4pr" secondAttribute="trailing" id="Een-Qe-f5R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N3o-Lh-wmA" secondAttribute="trailing" id="I8T-Ni-q3C"/>
                             <constraint firstItem="MLR-R6-1wL" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" constant="19" id="KAY-ZE-AFe"/>
-                            <constraint firstItem="ak4-1y-hHW" firstAttribute="top" secondItem="MLR-R6-1wL" secondAttribute="bottom" constant="8" id="Ku6-P1-3pX"/>
-                            <constraint firstItem="iSb-g3-cP1" firstAttribute="top" secondItem="MLR-R6-1wL" secondAttribute="bottom" constant="398" id="MrN-FG-C4c"/>
-                            <constraint firstItem="iSb-g3-cP1" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" constant="-16" id="TdO-37-ulb"/>
+                            <constraint firstItem="ak4-1y-hHW" firstAttribute="top" secondItem="MLR-R6-1wL" secondAttribute="bottom" constant="14" id="Ku6-P1-3pX"/>
                             <constraint firstItem="Xht-6X-jy1" firstAttribute="top" secondItem="N3o-Lh-wmA" secondAttribute="bottom" constant="20" id="c4H-zv-975"/>
-                            <constraint firstItem="ak4-1y-hHW" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" constant="96" id="r5W-OQ-oTf"/>
+                            <constraint firstItem="ak4-1y-hHW" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" id="r5W-OQ-oTf"/>
                             <constraint firstItem="MLR-R6-1wL" firstAttribute="top" secondItem="qQO-FG-4pr" secondAttribute="bottom" constant="8" id="wav-tc-RRy"/>
                             <constraint firstItem="N3o-Lh-wmA" firstAttribute="leading" secondItem="Crn-1e-KLU" secondAttribute="leadingMargin" id="wrw-Jq-PAx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pick Destination" id="kMR-7M-S1V"/>
                     <connections>
-                        <outlet property="destinationPick" destination="iSb-g3-cP1" id="5Vt-iO-p5K"/>
+                        <outlet property="destinationText" destination="ak4-1y-hHW" id="aNG-9O-EVF"/>
                         <outlet property="pickUpFrom" destination="qQO-FG-4pr" id="Yve-4O-pBP"/>
                         <segue destination="djA-vz-rrg" kind="push" identifier="toConfrimation" id="2C0-m3-tTA"/>
                     </connections>
