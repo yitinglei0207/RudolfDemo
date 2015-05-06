@@ -71,13 +71,18 @@
         
         [mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400) animated: YES];
         
+        
     }
-    UIImage *pinImage = [UIImage  imageNamed:@"pin"];
-    UIImageView *pinView = [[UIImageView alloc]initWithImage:pinImage];
-    [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
-    
-    [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 13, self.map.frame.size.height/2 + 26, 26, 26)];
-    [self.view addSubview:pinView];
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        UIImage *pinImage = [UIImage  imageNamed:@"pin"];
+        UIImageView *pinView = [[UIImageView alloc]initWithImage:pinImage];
+        [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
+        
+        [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 13, self.map.frame.size.height/2 + 26, 26, 26)];
+        [self.view addSubview:pinView];
+    });
     //[self addAnnotation];
 
 }
