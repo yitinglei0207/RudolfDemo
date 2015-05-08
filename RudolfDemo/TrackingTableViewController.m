@@ -16,10 +16,24 @@
     NSString *status;
     NSDictionary *trackDic;
     NSMutableArray *trackArrayList;
+    NSMutableArray *addressArray ;
 }
 @end
 
 @implementation TrackingTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    addressArray = [[NSMutableArray alloc]init];
+    [self startQuery];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -30,10 +44,10 @@
 //{
 //    return ;
 //}
-/*
+
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return ;
+    return addressArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -41,7 +55,7 @@
     NSString *CellIdentifier = @"trackingCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor =[UIColor clearColor];
         cell.textLabel.textColor = [UIColor grayColor];
         cell.textLabel.font =[UIFont systemFontOfSize:15];
@@ -50,24 +64,33 @@
     } else {
         NSLog(@"I have been initialize. Row = %li", (long)indexPath.row);
     }
-    cell.textLabel.text= [NSString stringWithFormat:@"%@",self.sectionArray[indexPath.row][@"section"][@"name"]];
+    cell.textLabel.text = [addressArray objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (void)startQuery{
     //query for number of events
     PFQuery *trackQuery = [PFQuery queryWithClassName:@"Delivery"];
-    NSInteger trackNumber = [trackQuery countObjects];
-    
+    //NSInteger trackNumber = [trackQuery countObjects];
+    [trackQuery whereKey:@"Destination" equalTo:@"SongShan Airport"];
     [trackQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error) {
-            trackDic = @[@"username":
-                         ]
+            
+            
+            for (NSDictionary *object in objects) {
+                [addressArray addObject:[object objectForKey:@"Destination"]];
+            }
+            NSLog(@"%@",addressArray);
+            [self.tableView reloadData];
+        }else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        
         
     }];
 }
-*/
+
 
 @end
 

@@ -149,7 +149,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="IyL-4V-Rki" id="Rrb-mt-wzJ"/>
-                            <outlet property="delegate" destination="IyL-4V-Rki" id="xuD-8f-Rym"/>
+                            <outlet property="delegate" destination="IyL-4V-Rki" id="tmW-Qp-pES"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="lcO-tR-J8o"/>
