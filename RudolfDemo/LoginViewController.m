@@ -27,7 +27,7 @@
 }
 - (IBAction)fbLogin:(id)sender {
     NSArray *permissionArray = @[ @"user_about_me", @"user_birthday",@"email"];
-    
+    //NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error){
         if(!user){
             //login failed
@@ -51,6 +51,11 @@
                 NSLog(@"logged in!");
                 [self saveUserDataToParse];
             }
+            NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
+            [userInfo setObject:user.email forKey:@"email"];
+            //[userInfo setObject:user.name forKey:@"userName"];
+            //[userInfo setObject:_passwordText.text forKey:@"password"];
+            [userInfo synchronize];
             UIViewController *menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuNaviController"];
             [self presentViewController:menuViewController animated:YES completion:nil];
             

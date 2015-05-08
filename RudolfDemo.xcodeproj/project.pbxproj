@@ -14,6 +14,8 @@
 		4212E44F1AEA0DDF004F136C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */; };
 		4212E45B1AEA0DDF004F136C /* RudolfDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E45A1AEA0DDF004F136C /* RudolfDemoTests.m */; };
 		4212E46F1AEA131C004F136C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E46E1AEA131C004F136C /* MapViewController.m */; };
+		421A46AC1AFCB2BD00141B7F /* TrackingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */; };
+		42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D485891AFCD98400D16EAE /* CheckStatusViewController.m */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
@@ -50,6 +52,10 @@
 		4212E45A1AEA0DDF004F136C /* RudolfDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RudolfDemoTests.m; sourceTree = "<group>"; };
 		4212E46D1AEA131C004F136C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4212E46E1AEA131C004F136C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		421A46AA1AFCB2BD00141B7F /* TrackingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingTableViewCell.h; sourceTree = "<group>"; };
+		421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingTableViewCell.m; sourceTree = "<group>"; };
+		42D485881AFCD98400D16EAE /* CheckStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckStatusViewController.h; sourceTree = "<group>"; };
+		42D485891AFCD98400D16EAE /* CheckStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckStatusViewController.m; sourceTree = "<group>"; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -173,6 +179,10 @@
 			children = (
 				42E078C51AFA20B4000DF533 /* TrackingTableViewController.h */,
 				42E078C61AFA20B4000DF533 /* TrackingTableViewController.m */,
+				421A46AA1AFCB2BD00141B7F /* TrackingTableViewCell.h */,
+				421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */,
+				42D485881AFCD98400D16EAE /* CheckStatusViewController.h */,
+				42D485891AFCD98400D16EAE /* CheckStatusViewController.m */,
 			);
 			name = TrackingBranch;
 			sourceTree = "<group>";
@@ -332,12 +342,14 @@
 			files = (
 				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
+				42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */,
 				42E078C71AFA20B4000DF533 /* TrackingTableViewController.m in Sources */,
 				42E078581AF86429000DF533 /* MyAnnotation.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
 				42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */,
 				42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */,
+				421A46AC1AFCB2BD00141B7F /* TrackingTableViewCell.m in Sources */,
 				42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
