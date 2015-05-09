@@ -111,10 +111,22 @@
     [trackQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error) {
             for (PFObject *object in objects) {
-                [addressArray addObject:[object objectForKey:@"Destination"]];
-                [trackDateArray addObject:object.createdAt];
-                //NSLog(@"%@",[object objectForKey:@"status"]);
-                [statusArray addObject:[object objectForKey:@"status"]];
+                if ([object objectForKey:@"Destination"]!=nil) {
+                    [addressArray addObject:[object objectForKey:@"Destination"]];
+                }else{
+                    [addressArray addObject:@""];
+                }
+                if (object.createdAt != nil) {
+                    [trackDateArray addObject:object.createdAt];
+                }else{
+                    [trackDateArray addObject:@""];
+                }
+                if ([object objectForKey:@"status"]!= nil) {
+                    [statusArray addObject:[object objectForKey:@"status"]];
+                }else{
+                    [statusArray addObject:@""];
+                }
+                
                 
                 //NSLog(@"%@",trackDateArray);
             }
