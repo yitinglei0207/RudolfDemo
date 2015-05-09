@@ -257,6 +257,18 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-lP-2QA">
+                                <rect key="frame" x="16" y="345" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEK-aH-IlV">
+                                <rect key="frame" x="16" y="309" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -267,11 +279,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="thh-C9-7tw" secondAttribute="trailing" id="8h2-h8-rvK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bnB-8t-M2j" secondAttribute="trailing" id="989-Dv-bxH"/>
                             <constraint firstItem="Un2-No-TIM" firstAttribute="top" secondItem="thh-C9-7tw" secondAttribute="bottom" constant="15" id="Atc-Ya-50g"/>
+                            <constraint firstItem="pEK-aH-IlV" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="H45-YF-eVN"/>
                             <constraint firstItem="bnB-8t-M2j" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="LlV-8q-xgC"/>
                             <constraint firstItem="fEF-yp-IbW" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="PBx-Fm-Sw6"/>
+                            <constraint firstItem="HVN-lP-2QA" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="Uqd-jV-47Z"/>
                             <constraint firstItem="GNB-z7-crk" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="VSr-EH-zYS"/>
                             <constraint firstItem="bnB-8t-M2j" firstAttribute="top" secondItem="GNB-z7-crk" secondAttribute="bottom" constant="15" id="Yy8-I3-0L1"/>
                             <constraint firstItem="fC1-ZF-8df" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="aqx-3k-r6N"/>
+                            <constraint firstItem="pEK-aH-IlV" firstAttribute="top" secondItem="bnB-8t-M2j" secondAttribute="bottom" constant="15" id="bKm-RS-IGl"/>
                             <constraint firstItem="jcB-vh-KOO" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="f3Q-OF-DZn"/>
                             <constraint firstItem="ovV-hU-YVY" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="geq-rg-ulh"/>
                             <constraint firstItem="JRD-bQ-sug" firstAttribute="top" secondItem="fEF-yp-IbW" secondAttribute="bottom" constant="20" id="hfu-bg-EzL"/>
@@ -279,10 +294,13 @@
                             <constraint firstItem="v1v-jH-V9u" firstAttribute="top" secondItem="ovV-hU-YVY" secondAttribute="bottom" constant="15" id="ikq-GG-8FA"/>
                             <constraint firstItem="GNB-z7-crk" firstAttribute="top" secondItem="v1v-jH-V9u" secondAttribute="bottom" constant="15" id="j9f-zk-Ge5"/>
                             <constraint firstItem="v1v-jH-V9u" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="jvg-8R-76D"/>
+                            <constraint firstItem="HVN-lP-2QA" firstAttribute="trailing" secondItem="3SB-eo-YmP" secondAttribute="trailingMargin" id="k0C-6f-2h1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v1v-jH-V9u" secondAttribute="trailing" id="lzx-E3-BkE"/>
                             <constraint firstItem="thh-C9-7tw" firstAttribute="top" secondItem="jcB-vh-KOO" secondAttribute="bottom" constant="15" id="pMB-CI-O1N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fEF-yp-IbW" secondAttribute="trailing" id="sZD-Me-qIT"/>
                             <constraint firstItem="Un2-No-TIM" firstAttribute="leading" secondItem="3SB-eo-YmP" secondAttribute="leadingMargin" id="vIV-sz-mds"/>
+                            <constraint firstItem="HVN-lP-2QA" firstAttribute="top" secondItem="pEK-aH-IlV" secondAttribute="bottom" constant="15" id="woB-hK-vNq"/>
+                            <constraint firstItem="HVN-lP-2QA" firstAttribute="top" secondItem="pEK-aH-IlV" secondAttribute="bottom" constant="15" id="yEG-ls-FV9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T7c-Ua-TPV"/>
@@ -448,6 +466,7 @@
                     <navigationItem key="navigationItem" title="Pick Destination" id="kMR-7M-S1V"/>
                     <connections>
                         <outlet property="destinationText" destination="ak4-1y-hHW" id="aNG-9O-EVF"/>
+                        <outlet property="phoneText" destination="8FW-oC-xV6" id="gcr-Gz-ojr"/>
                         <outlet property="pickUpFrom" destination="qQO-FG-4pr" id="Yve-4O-pBP"/>
                         <segue destination="djA-vz-rrg" kind="push" identifier="toConfrimation" id="2C0-m3-tTA"/>
                     </connections>
@@ -604,6 +623,7 @@
                     <navigationItem key="navigationItem" title="Confirmation Page" id="6gf-7T-7DW"/>
                     <connections>
                         <outlet property="fromPickupLabel" destination="ezk-3W-1FH" id="kyh-VD-E8j"/>
+                        <outlet property="phoneLabel" destination="a4S-Wf-CjK" id="Hpy-Rs-jmr"/>
                         <outlet property="toDestinationLabel" destination="RSJ-uL-IJo" id="Dp5-Js-J9Z"/>
                     </connections>
                 </viewController>

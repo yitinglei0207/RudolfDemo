@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RudolfDemo/TrackingTableViewController.m"
-            timestampString = "452830894.967218"
+            timestampString = "452837384.958551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-startQuery"
             landmarkType = "5">
          </BreakpointContent>

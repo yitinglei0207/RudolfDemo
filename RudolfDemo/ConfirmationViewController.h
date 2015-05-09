@@ -10,6 +10,9 @@
 
 @interface ConfirmationViewController : UIViewController
 @property(nonatomic,strong)NSString *receivedDestination;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+
+@property(nonatomic,strong)NSString *receivedPhone;
 @property(nonatomic,strong)NSString *receivedPickupSpot;
 @property (weak, nonatomic) IBOutlet UILabel *fromPickupLabel;
 @property (weak, nonatomic) IBOutlet UILabel *toDestinationLabel;

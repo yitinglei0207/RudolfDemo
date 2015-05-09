@@ -41,6 +41,7 @@
     delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
     delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
     delivery[@"SerialNumber"] = serialNumber;
+    delivery[@"toPhoneNumber"] = _phoneLabel.text;
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"The object has been saved.");

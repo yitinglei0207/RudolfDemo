@@ -59,6 +59,7 @@
         ConfirmationViewController *destination = segue.destinationViewController;
         destination.receivedDestination = _destinationText.text;
         destination.receivedPickupSpot = _receivedSelectionText;
+        destination.receivedPhone = _phoneText.text;
     }
 }
 
