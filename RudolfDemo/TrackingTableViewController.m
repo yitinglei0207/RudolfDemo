@@ -153,7 +153,7 @@
     
     CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
     checkVC.receivedDic = currentData;
-    [self presentViewController:checkVC animated:YES completion:nil];
+    [self.navigationController presentViewController:checkVC animated:YES completion:nil];
 //    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
 }
 //

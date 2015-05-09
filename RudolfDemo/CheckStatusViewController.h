@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *destinationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property(nonatomic,strong) NSDictionary *receivedDic;
+@property (nonatomic,strong) NSDictionary *receivedDic;
 @end

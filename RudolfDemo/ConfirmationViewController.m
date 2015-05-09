@@ -44,11 +44,17 @@
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"The object has been saved.");
+            [self.navigationController popToRootViewControllerAnimated:YES];
         } else {
             NSLog(@"There was a problem, check error.description");
         }
     }];
 }
+- (IBAction)confirmButton:(id)sender {
+
+    
+}
+
 
 /*
 #pragma mark - Navigation
