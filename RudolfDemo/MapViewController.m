@@ -19,6 +19,9 @@
     MyAnnotation *currentAnnotation;
     int estimateTimeOfPickup;
     
+    UIView *pinView;
+    UILabel *estimationTimeLabel;
+    UIImage *pinImage;
 }
 @property (nonatomic,strong) CLGeocoder *geoCoder;
 @property (nonatomic,strong) NSString *addressReturn;
@@ -34,6 +37,16 @@
     [locationManager requestWhenInUseAuthorization];
     self.geoCoder = [[CLGeocoder alloc]init];
     
+    estimationTimeLabel = [[UILabel alloc]init];
+    estimationTimeLabel.textColor = [UIColor whiteColor];
+    estimationTimeLabel.textAlignment = NSTextAlignmentCenter;
+    [estimationTimeLabel.font fontWithSize:1.5];
+    estimationTimeLabel.numberOfLines = 2;
+    estimationTimeLabel.backgroundColor = [UIColor blackColor];
+    [estimationTimeLabel setFrame:  CGRectMake(25, 5, 30, 45)];
+    pinImage = [UIImage  imageNamed:@"pin"];
+    
+    //set initial map span to Taipei city
     [self.map setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.04536, 121.54195), 11400, 11400)animated:YES];
     [self addAnnotation];
     
@@ -56,10 +69,7 @@
     if (isFirstGetLocation== NO) {
         isFirstGetLocation = YES;
         //zoom into user location in 400m*400m
-        
-        
-        
-        
+
         //MKCoordinateRegion mapRegion;
         //        mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
         //        mapRegion.center.latitude  = ( 25.033408 + mapView.userLocation.coordinate.latitude)/2;
@@ -136,10 +146,6 @@
         //NSString *addressReturn;
         if (error == nil && placemarks.count >0) {
             CLPlacemark *placeMark = placemarks[0];
-            //            for (NSString *key in placeMark.addressDictionary) {
-            //                //NSLog(@"%@ %@", key, placeMark.addressDictionary[key]);
-            //
-            //            }
             NSArray *addressArray = [placeMark.addressDictionary objectForKey:@"FormattedAddressLines"];
             for (NSString *address in addressArray) {
                 //NSLog(@"address: %@",address);
@@ -159,7 +165,7 @@
 
 
 -(void) addAnnotation{
-    
+    // set rudolf location
     currentAnnotation = [[MyAnnotation alloc]initWithCoordinate:CLLocationCoordinate2DMake(25.033408, 121.564009) title:@"Rudolf" subtitle:@"Location"];
     [self.map addAnnotation:currentAnnotation];
     
@@ -200,13 +206,13 @@
     [centerPlaceMark initWithCoordinate:_mapCenter.coordinate addressDictionary:nil];
     [mapCenter initWithPlacemark:centerPlaceMark];
     [request setDestination:mapCenter];
-    
+    // set rudolf position
     MKMapItem *rudolfLocation = [[MKMapItem alloc]init];
     MKPlacemark *placeMark = [[MKPlacemark alloc]init];
     [placeMark initWithCoordinate:currentAnnotation.coordinate addressDictionary:nil];
     
     [request setSource:[rudolfLocation initWithPlacemark:placeMark]];
-    
+    //calculating time
     MKDirections *rudolfToYou = [[MKDirections alloc]init];
     [rudolfToYou initWithRequest:request];
     [rudolfToYou calculateETAWithCompletionHandler:^(MKETAResponse *response, NSError *error) {
@@ -218,29 +224,20 @@
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
-            //UIImage *rudolfImage = [UIImage imageNamed:@"AppLogo"];
-            UILabel *estimationTimeLabel = [[UILabel alloc]init];
-            estimationTimeLabel.text = [NSString stringWithFormat:@"%d Minutes",estimateTimeOfPickup];
-            estimationTimeLabel.textColor = [UIColor darkGrayColor];
-            estimationTimeLabel.backgroundColor = [UIColor yellowColor];
-            //[estimationTimeLabel sizeToFit];
-            [estimationTimeLabel setFrame:  CGRectMake(0, 0, 100, 20)] ;
+            estimationTimeLabel.text = [NSString stringWithFormat:@"%d min",estimateTimeOfPickup];
+
             
-            UIView *rudolfEstimationView = [[UIView alloc]init];
-            rudolfEstimationView.center = CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2 - 20);
-            [rudolfEstimationView sizeToFit];
-            [rudolfEstimationView addSubview:estimationTimeLabel];
-            
+            if (pinView == nil) {
+                pinView = [[UIImageView alloc]initWithImage:pinImage];
+                [pinView setContentMode:UIViewContentModeScaleAspectFit];
+                [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
+                [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 40, self.map.frame.size.height/2 -20, 80, 80)];
+                [pinView addSubview:estimationTimeLabel];
+                [self.view addSubview:pinView];
+            }
             
             
-            UIImage *pinImage = [UIImage  imageNamed:@"pin"];
-            UIImageView *pinView = [[UIImageView alloc]initWithImage:pinImage];
-            [pinView setContentMode:UIViewContentModeScaleAspectFit];
-            [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
-            
-            [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 13, self.map.frame.size.height/2 + 26, 26, 26)];
-            [self.view addSubview:pinView];
-            [self.view addSubview:rudolfEstimationView];
+            //[self.view addSubview:rudolfEstimationView];
             
         });
     }];
