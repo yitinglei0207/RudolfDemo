@@ -6,22 +6,22 @@
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
 
-#import "ConfirmationViewController.h"
+#import "AirportConfirmController.h"
 #import <Parse/Parse.h>
 
-@interface ConfirmationViewController ()
+@interface AirportConfirmController ()
 {
     ;
 }
 @end
 
-@implementation ConfirmationViewController
+@implementation AirportConfirmController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.fromPickupLabel.text = self.receivedPickupSpot;
-    self.toDestinationLabel.text = self.receivedDestination;
+    //self.toDestinationLabel.text = self.receivedDestination;
     
 
     
@@ -37,11 +37,11 @@
     
     PFObject *delivery = [PFObject objectWithClassName:@"Delivery"];
     delivery[@"PickupSpot"]  = _fromPickupLabel.text;
-    delivery[@"Destination"] = _toDestinationLabel.text;
+    //delivery[@"Destination"] = _toDestinationLabel.text;
     delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
     delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
-    delivery[@"SerialNumber"] = serialNumber;
-    delivery[@"toPhoneNumber"] = _phoneLabel.text;
+    //delivery[@"SerialNumber"] = serialNumber;
+    //delivery[@"toPhoneNumber"] = _phoneLabel.text;
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"The object has been saved.");

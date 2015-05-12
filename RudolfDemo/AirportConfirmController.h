@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConfirmationViewController : UIViewController
-@property(nonatomic,strong)NSString *receivedDestination;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@interface AirportConfirmController : UIViewController
+//@property(nonatomic,strong)NSString *receivedDestination;
 
-@property(nonatomic,strong)NSString *receivedPhone;
 @property(nonatomic,strong)NSString *receivedPickupSpot;
 @property (weak, nonatomic) IBOutlet UILabel *fromPickupLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toDestinationLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *toDestinationLabel;
 
 @end

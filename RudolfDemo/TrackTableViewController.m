@@ -1,18 +1,18 @@
 //
-//  TrackingTableViewController.m
+//  TrackTableViewController.m
 //  RudolfDemo
 //
-//  Created by Jason Lei on 2015/5/6.
+//  Created by Jason Lei on 2015/5/12.
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-#import "TrackingTableViewController.h"
+#import "TrackTableViewController.h"
+#import "SWRevealViewController.h"
 #import "TrackingTableViewCell.h"
 #import "CheckStatusViewController.h"
-#import "SWRevealViewController.h"
+#import <Parse/Parse.h>
 
-@interface TrackingTableViewController ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
+@interface TrackTableViewController ()
 {
     //NSString *username;
     NSString *currentCreatedAt;
@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
 
-@implementation TrackingTableViewController
+@implementation TrackTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +46,7 @@
         [self.sidebarButton setAction: @selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-
+    
     [self startQuery];
     
     
@@ -150,7 +150,7 @@
                 //NSLog(@"%@",trackDateArray);
             }
             NSLog(@"%@",trackDateArray);
-            [self.tableView reloadData];
+            [self.trackTable reloadData];
         }else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -195,9 +195,20 @@
 //    {
 //        //if you need to pass data to the next controller do it here
 ////        CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
-//        
+//
 //    }
 //}
 
 @end
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 

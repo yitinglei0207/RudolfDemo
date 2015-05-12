@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PickDestinationViewController.h"
-#import "ConfirmationViewController.h"
+#import "AirportConfirmController.h"
 #import "SWRevealViewController.h"
 
 @interface PickDestinationViewController ()
@@ -63,18 +63,17 @@
 
 
 
-- (IBAction)doneSelectingDestination:(id)sender {
-    [self performSegueWithIdentifier:@"toConfrimation" sender:self];
-    
+- (IBAction)toHotelConfirm:(id)sender {
+    [self performSegueWithIdentifier:@"toHotelConfrimation" sender:self];
+}
+- (IBAction)toAirportConfirm:(id)sender {
+    [self performSegueWithIdentifier:@"toAirportConfrimation" sender:self];
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"toConfrimation"]) {
-        ConfirmationViewController *destination = segue.destinationViewController;
-        destination.receivedDestination = _destinationText.text;
-        destination.receivedPickupSpot = _receivedSelectionText;
-        destination.receivedPhone = _phoneText.text;
-    }
+        AirportConfirmController *destination = segue.destinationViewController;
+        destination.receivedPickupSpot = _pickUpFrom.text;
 }
 
 

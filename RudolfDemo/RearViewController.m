@@ -2,9 +2,9 @@
 
 #import "RearViewController.h"
 
-
-#import "PickDestinationViewController.h"
 #import "TrackingTableViewController.h"
+#import "PickDestinationViewController.h"
+#import "TrackTableViewController.h"
 #import "MapViewController.h"
 
 @interface RearViewController()
@@ -102,22 +102,37 @@
     
     // otherwise we'll create a new frontViewController and push it with animation
     
+//    UIViewController *newFrontController = nil;
+//    
+//    if (row == 0)
+//    {
+//        newFrontController = [[MapViewController alloc] init];
+//        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
+//        [revealController pushFrontViewController:navigationController animated:YES];
+//    }
+//    
+//    else if (row == 1)
+//    {
+//        //newFrontController = [[TrackingTableViewController alloc] init];
+//        
+//        TrackingTableViewController *trackingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TrackingTableViewController"];
+//        [self presentViewController:trackingTableViewController animated:YES completion:nil];
+//        
+//    }
     UIViewController *newFrontController = nil;
     
     if (row == 0)
     {
         newFrontController = [[MapViewController alloc] init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-        [revealController pushFrontViewController:navigationController animated:YES];
     }
     
     else if (row == 1)
     {
         newFrontController = [[TrackingTableViewController alloc] init];
-        
-        UIViewController *trackingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TrackingTableViewController"];
-        [self presentViewController:trackingTableViewController animated:YES completion:nil];
     }
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
+    [revealController pushFrontViewController:navigationController animated:YES];
     
     
     
