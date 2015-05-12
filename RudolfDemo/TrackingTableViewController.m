@@ -24,6 +24,7 @@
     NSMutableArray *addressArray;
     NSMutableArray *statusArray;
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
 
 @implementation TrackingTableViewController
@@ -35,15 +36,14 @@
     trackDateArray = [[NSMutableArray alloc]init];
     statusArray = [[NSMutableArray alloc]init];
     
-    SWRevealViewController *revealController = [self revealViewController];
+    SWRevealViewController *revealViewController = self.revealViewController;
     
-    [self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
-    
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
-                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
-    
-
-    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
 
     [self startQuery];
     
@@ -143,7 +143,7 @@
                 
                 //NSLog(@"%@",trackDateArray);
             }
-            //NSLog(@"%@",trackDateArray);
+            NSLog(@"%@",trackDateArray);
             [self.tableView reloadData];
         }else {
             // Log details of the failure
@@ -155,19 +155,19 @@
 }
 
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    if ([segue.identifier isEqualToString:@"checkStatusSegue"]) {
-//        CheckStatusViewController *nextView = segue.destinationViewController;
-////        nextView.fromLabel = _addressReturn;
-//    }
-//    
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"checkStatusSegue"]) {
+        CheckStatusViewController *nextView = segue.destinationViewController;
+        nextView.receivedDic = currentData;
+    }
+    
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *strDate = [dateFormatter stringFromDate:[trackDateArray objectAtIndex:indexPath.row]];
-    NSLog(@"%@", strDate);
+    //NSLog(@"%@", strDate);
     currentCreatedAt = strDate;
     currentDestination = addressArray[indexPath.row];
     currentStatus = statusArray[indexPath.row];
@@ -176,10 +176,10 @@
                     @"Destination":currentDestination,
                     @"Status":currentStatus};
     
-    CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
-    checkVC.receivedDic = currentData;
-    [self.navigationController presentViewController:checkVC animated:YES completion:nil];
-//    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
+    //CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
+    //checkVC.receivedDic = currentData;
+    //[self.navigationController presentViewController:checkVC animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
 }
 //
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -20,9 +20,9 @@
 		42D854C01B00830D00C85468 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D854BF1B00830D00C85468 /* AVFoundation.framework */; };
 		42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D854C21B01BBDA00C85468 /* RearViewController.m */; };
 		42DF99E91B01FB9600FF52B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */; };
+		42DF99EF1B02294400FF52B4 /* HotelConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
-		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
 		42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784E1AF76297000DF533 /* PickDestinationViewController.m */; };
 		42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078511AF77C4F000DF533 /* ConfirmationViewController.m */; };
 		42E078581AF86429000DF533 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078571AF86429000DF533 /* MyAnnotation.m */; };
@@ -67,10 +67,10 @@
 		42D854C21B01BBDA00C85468 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
 		42DF99E71B01FB9600FF52B4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		42DF99ED1B02294400FF52B4 /* HotelConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelConfirmViewController.h; sourceTree = "<group>"; };
+		42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelConfirmViewController.m; sourceTree = "<group>"; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
-		42E0784B1AF75060000DF533 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		42E0784D1AF76297000DF533 /* PickDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDestinationViewController.h; sourceTree = "<group>"; };
 		42E0784E1AF76297000DF533 /* PickDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDestinationViewController.m; sourceTree = "<group>"; };
 		42E078501AF77C4F000DF533 /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
@@ -179,8 +179,6 @@
 			children = (
 				4212E46D1AEA131C004F136C /* MapViewController.h */,
 				4212E46E1AEA131C004F136C /* MapViewController.m */,
-				42E0784A1AF75060000DF533 /* MainMenuViewController.h */,
-				42E0784B1AF75060000DF533 /* MainMenuViewController.m */,
 				42E0784D1AF76297000DF533 /* PickDestinationViewController.h */,
 				42E0784E1AF76297000DF533 /* PickDestinationViewController.m */,
 				42E078901AF8D140000DF533 /* pickerViewApplication.h */,
@@ -188,6 +186,8 @@
 				42E078511AF77C4F000DF533 /* ConfirmationViewController.m */,
 				42E078561AF86429000DF533 /* MyAnnotation.h */,
 				42E078571AF86429000DF533 /* MyAnnotation.m */,
+				42DF99ED1B02294400FF52B4 /* HotelConfirmViewController.h */,
+				42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */,
 			);
 			name = NewDeliveryBranch;
 			sourceTree = "<group>";
@@ -367,11 +367,11 @@
 				42E078581AF86429000DF533 /* MyAnnotation.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
 				42DF99E91B01FB9600FF52B4 /* SWRevealViewController.m in Sources */,
+				42DF99EF1B02294400FF52B4 /* HotelConfirmViewController.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
 				42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */,
 				42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */,
 				421A46AC1AFCB2BD00141B7F /* TrackingTableViewCell.m in Sources */,
-				42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */,
 				42D854BE1B007EBD00C85468 /* ReceivedQRController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

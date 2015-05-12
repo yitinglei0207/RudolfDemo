@@ -1,22 +1,25 @@
 //
-//  MainMenuViewController.m
+//  HotelConfirmViewController.m
 //  RudolfDemo
 //
-//  Created by Jason Lei on 2015/5/4.
+//  Created by Jason Lei on 2015/5/12.
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
 
-#import "MainMenuViewController.h"
+#import "HotelConfirmViewController.h"
 
-@interface MainMenuViewController ()
+@interface HotelConfirmViewController ()
 
 @end
 
-@implementation MainMenuViewController
+@implementation HotelConfirmViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
