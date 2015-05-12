@@ -38,11 +38,11 @@
     self.geoCoder = [[CLGeocoder alloc]init];
     
     estimationTimeLabel = [[UILabel alloc]init];
-    estimationTimeLabel.textColor = [UIColor whiteColor];
+    estimationTimeLabel.textColor = [UIColor blackColor];
     estimationTimeLabel.textAlignment = NSTextAlignmentCenter;
     [estimationTimeLabel.font fontWithSize:1.5];
     estimationTimeLabel.numberOfLines = 2;
-    estimationTimeLabel.backgroundColor = [UIColor blackColor];
+    estimationTimeLabel.backgroundColor = [UIColor clearColor];
     [estimationTimeLabel setFrame:  CGRectMake(25, 5, 30, 45)];
     pinImage = [UIImage  imageNamed:@"pin"];
     

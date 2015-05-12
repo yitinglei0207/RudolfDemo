@@ -16,6 +16,8 @@
 		4212E46F1AEA131C004F136C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212E46E1AEA131C004F136C /* MapViewController.m */; };
 		421A46AC1AFCB2BD00141B7F /* TrackingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */; };
 		42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D485891AFCD98400D16EAE /* CheckStatusViewController.m */; };
+		42D854BE1B007EBD00C85468 /* ReceivedQRController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D854BD1B007EBD00C85468 /* ReceivedQRController.m */; };
+		42D854C01B00830D00C85468 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D854BF1B00830D00C85468 /* AVFoundation.framework */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
@@ -56,6 +58,9 @@
 		421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingTableViewCell.m; sourceTree = "<group>"; };
 		42D485881AFCD98400D16EAE /* CheckStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckStatusViewController.h; sourceTree = "<group>"; };
 		42D485891AFCD98400D16EAE /* CheckStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckStatusViewController.m; sourceTree = "<group>"; };
+		42D854BC1B007EBD00C85468 /* ReceivedQRController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceivedQRController.h; path = ../ReceivedQRController.h; sourceTree = "<group>"; };
+		42D854BD1B007EBD00C85468 /* ReceivedQRController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceivedQRController.m; path = ../ReceivedQRController.m; sourceTree = "<group>"; };
+		42D854BF1B00830D00C85468 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D854C01B00830D00C85468 /* AVFoundation.framework in Frameworks */,
 				42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */,
 				D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */,
 			);
@@ -123,6 +129,8 @@
 				4212E44B1AEA0DDF004F136C /* Images.xcassets */,
 				4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */,
 				42E078451AF603B2000DF533 /* Main.storyboard */,
+				42D854BC1B007EBD00C85468 /* ReceivedQRController.h */,
+				42D854BD1B007EBD00C85468 /* ReceivedQRController.m */,
 				42E078C41AFA2070000DF533 /* TrackingBranch */,
 				4212E43E1AEA0DDF004F136C /* Supporting Files */,
 				42E078C31AFA205D000DF533 /* NewDeliveryBranch */,
@@ -199,6 +207,7 @@
 		ADD8B3201442DFBF233D7833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42D854BF1B00830D00C85468 /* AVFoundation.framework */,
 				42E078481AF709A4000DF533 /* MapKit.framework */,
 				CC21272BC2987437B49D168F /* libPods.a */,
 			);
@@ -351,6 +360,7 @@
 				42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */,
 				421A46AC1AFCB2BD00141B7F /* TrackingTableViewCell.m in Sources */,
 				42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */,
+				42D854BE1B007EBD00C85468 /* ReceivedQRController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
