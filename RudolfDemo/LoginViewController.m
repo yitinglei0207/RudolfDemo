@@ -56,7 +56,7 @@
             //[userInfo setObject:user.name forKey:@"userName"];
             //[userInfo setObject:_passwordText.text forKey:@"password"];
             [userInfo synchronize];
-            UIViewController *menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuNaviController"];
+            UIViewController *menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SWView"];
             [self presentViewController:menuViewController animated:YES completion:nil];
             
         }

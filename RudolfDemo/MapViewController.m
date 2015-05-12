@@ -11,6 +11,9 @@
 #import <MapKit/MapKit.h>
 #import "PickDestinationViewController.h"
 #import "MyAnnotation.h"
+#import "SWRevealViewController.h"
+
+//#import <SWRevealViewController/SWRevealViewController.m>
 
 @interface MapViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 {
@@ -32,6 +35,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    SWRevealViewController *revealController = [self revealViewController];
+//    
+//    [self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
+//    
+//    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+//                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+//    
+//    self.navigationItem.leftBarButtonItem = revealButtonItem;
+//    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+//
+    
+    
+    
     // Do any additional setup after loading the view.
     locationManager = [[CLLocationManager alloc]init];
     [locationManager requestWhenInUseAuthorization];

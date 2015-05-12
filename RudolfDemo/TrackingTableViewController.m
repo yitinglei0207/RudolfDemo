@@ -10,7 +10,7 @@
 #import "TrackingTableViewController.h"
 #import "TrackingTableViewCell.h"
 #import "CheckStatusViewController.h"
-
+#import "SWRevealViewController.h"
 
 @interface TrackingTableViewController ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
 {
@@ -34,7 +34,20 @@
     addressArray = [[NSMutableArray alloc]init];
     trackDateArray = [[NSMutableArray alloc]init];
     statusArray = [[NSMutableArray alloc]init];
+    
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    [self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
+    
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    
+
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+
     [self startQuery];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

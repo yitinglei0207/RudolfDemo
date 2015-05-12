@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK.h>
+#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,10 @@
     [Parse setApplicationId:@"T152XZcVvH783K7EzqO7GzEyB2or97I5x0UMy0Fg" clientKey:@"UMtv9m9orPg10K0W4rMK18Xp0OGPgARws7uf0cUt"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
+    
+    
+
+    
     
     return YES;
 }

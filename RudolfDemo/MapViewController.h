@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MapViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (nonatomic, readonly) MKUserLocation *userLocation;
 @end

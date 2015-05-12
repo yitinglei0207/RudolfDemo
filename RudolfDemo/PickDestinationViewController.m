@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PickDestinationViewController.h"
 #import "ConfirmationViewController.h"
+#import "SWRevealViewController.h"
+
 @interface PickDestinationViewController ()
 {
     NSArray *pickerArray;
@@ -16,6 +18,7 @@
     NSInteger originalPickerY;
     UIView *pickerView;
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarMenuButton;
 @end
 
 @implementation PickDestinationViewController
@@ -23,6 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //side menu 觸擊
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarMenuButton setTarget: self.revealViewController];
+        [self.sidebarMenuButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
+    
     originalPickerY = self.view.frame.size.height;
     _pickUpFrom.text = _receivedSelectionText;
     

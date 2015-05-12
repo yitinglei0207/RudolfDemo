@@ -18,6 +18,8 @@
 		42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D485891AFCD98400D16EAE /* CheckStatusViewController.m */; };
 		42D854BE1B007EBD00C85468 /* ReceivedQRController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D854BD1B007EBD00C85468 /* ReceivedQRController.m */; };
 		42D854C01B00830D00C85468 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D854BF1B00830D00C85468 /* AVFoundation.framework */; };
+		42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D854C21B01BBDA00C85468 /* RearViewController.m */; };
+		42DF99E91B01FB9600FF52B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		42E0784C1AF75060000DF533 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784B1AF75060000DF533 /* MainMenuViewController.m */; };
@@ -61,6 +63,10 @@
 		42D854BC1B007EBD00C85468 /* ReceivedQRController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceivedQRController.h; path = ../ReceivedQRController.h; sourceTree = "<group>"; };
 		42D854BD1B007EBD00C85468 /* ReceivedQRController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceivedQRController.m; path = ../ReceivedQRController.m; sourceTree = "<group>"; };
 		42D854BF1B00830D00C85468 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		42D854C11B01BBDA00C85468 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
+		42D854C21B01BBDA00C85468 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
+		42DF99E71B01FB9600FF52B4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E0784A1AF75060000DF533 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 		4212E43D1AEA0DDF004F136C /* RudolfDemo */ = {
 			isa = PBXGroup;
 			children = (
+				42DF99E71B01FB9600FF52B4 /* SWRevealViewController.h */,
+				42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */,
 				4212E4421AEA0DDF004F136C /* AppDelegate.h */,
 				4212E4431AEA0DDF004F136C /* AppDelegate.m */,
 				4212E4451AEA0DDF004F136C /* LoginViewController.h */,
@@ -129,6 +137,8 @@
 				4212E44B1AEA0DDF004F136C /* Images.xcassets */,
 				4212E44D1AEA0DDF004F136C /* LaunchScreen.xib */,
 				42E078451AF603B2000DF533 /* Main.storyboard */,
+				42D854C11B01BBDA00C85468 /* RearViewController.h */,
+				42D854C21B01BBDA00C85468 /* RearViewController.m */,
 				42D854BC1B007EBD00C85468 /* ReceivedQRController.h */,
 				42D854BD1B007EBD00C85468 /* ReceivedQRController.m */,
 				42E078C41AFA2070000DF533 /* TrackingBranch */,
@@ -351,10 +361,12 @@
 			files = (
 				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
+				42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */,
 				42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */,
 				42E078C71AFA20B4000DF533 /* TrackingTableViewController.m in Sources */,
 				42E078581AF86429000DF533 /* MyAnnotation.m in Sources */,
 				4212E4411AEA0DDF004F136C /* main.m in Sources */,
+				42DF99E91B01FB9600FF52B4 /* SWRevealViewController.m in Sources */,
 				4212E46F1AEA131C004F136C /* MapViewController.m in Sources */,
 				42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */,
 				42E078521AF77C4F000DF533 /* ConfirmationViewController.m in Sources */,
