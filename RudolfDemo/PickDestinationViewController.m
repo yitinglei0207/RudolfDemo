@@ -10,6 +10,7 @@
 #import "PickDestinationViewController.h"
 #import "AirportConfirmController.h"
 #import "SWRevealViewController.h"
+#import "HotelConfirmViewController.h"
 
 @interface PickDestinationViewController ()
 {
@@ -64,16 +65,22 @@
 
 
 - (IBAction)toHotelConfirm:(id)sender {
-    [self performSegueWithIdentifier:@"toHotelConfrimation" sender:self];
+    [self performSegueWithIdentifier:@"toHotelConfirmation" sender:self];
 }
 - (IBAction)toAirportConfirm:(id)sender {
-    [self performSegueWithIdentifier:@"toAirportConfrimation" sender:self];
+    [self performSegueWithIdentifier:@"toAirportConfirmation" sender:self];
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"toAirportConfirmation"]) {
         AirportConfirmController *destination = segue.destinationViewController;
         destination.receivedPickupSpot = _pickUpFrom.text;
+    }else{
+        HotelConfirmViewController *destination = segue.destinationViewController;
+        destination.receivedPickupSpot = _pickUpFrom.text;
+    }
+    
 }
 
 
@@ -146,6 +153,9 @@
 
 -(void)dismissKeyboard {
     [_destinationText resignFirstResponder];
+}
+- (IBAction)backButtonPressed:(id)sender {
+        [self.navigationController popViewControllerAnimated:YES];
 }
 /*
 #pragma mark - Navigation

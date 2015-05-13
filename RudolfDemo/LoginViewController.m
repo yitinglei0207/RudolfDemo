@@ -23,9 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +37,7 @@
     indicatorBackground = [[UIImageView alloc]init];
     indicatorBackground.backgroundColor = [UIColor darkGrayColor];
     indicatorBackground.alpha = 0.5;
-    [indicatorBackground setFrame:CGRectMake(self.view.center.x-20, self.view.center.y-20, 40, 40)];
+    [indicatorBackground setFrame:CGRectMake(self.view.center.x-25, self.view.center.y-25, 50, 50)];
     indicatorBackground.layer.cornerRadius = 5;
     indicatorBackground.layer.masksToBounds = YES;
     [self.view addSubview:indicatorBackground];
@@ -85,16 +83,17 @@
             [self presentViewController:menuViewController animated:YES completion:nil];
             
         }
+        self.view.userInteractionEnabled = YES;
         [_indicator stopAnimating];
         [indicatorBackground removeFromSuperview];
         
     }];
 }
 
-- (IBAction)fbLogout:(id)sender {
-    [PFUser logOut];
-    NSLog(@"logged out");
-}
+//- (IBAction)fbLogout:(id)sender {
+//    [PFUser logOut];
+//    NSLog(@"logged out");
+//}
 
 -(void) saveUserDataToParse
 {

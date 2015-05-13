@@ -12,6 +12,10 @@
 //@property(nonatomic,strong)NSString *receivedDestination;
 
 @property(nonatomic,strong)NSString *receivedPickupSpot;
+@property (weak, nonatomic) IBOutlet UIDatePicker *boardingTime;
+@property (weak, nonatomic) IBOutlet UITextField *airportName;
+@property (weak, nonatomic) IBOutlet UILabel *estimationTime;
+@property (weak, nonatomic) IBOutlet UITextField *terminal;
 @property (weak, nonatomic) IBOutlet UILabel *fromPickupLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *toDestinationLabel;
 

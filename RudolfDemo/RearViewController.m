@@ -1,10 +1,10 @@
 
 
 #import "RearViewController.h"
-
+#import <Parse/Parse.h>
 #import "TrackingTableViewController.h"
 #import "PickDestinationViewController.h"
-#import "TrackTableViewController.h"
+//#import "TrackTableViewController.h"
 #import "MapViewController.h"
 
 @interface RearViewController()
@@ -97,8 +97,13 @@
     else if (row == 3)
     {
         [revealController setFrontViewPosition:FrontViewPositionRight animated:YES];
+        [PFUser logOut];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        NSLog(@"logged out");
         return;
     }
+    
+    
     
     // otherwise we'll create a new frontViewController and push it with animation
     

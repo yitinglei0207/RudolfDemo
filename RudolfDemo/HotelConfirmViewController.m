@@ -5,11 +5,17 @@
 //  Created by Jason Lei on 2015/5/12.
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
-
+#import <Parse.h>
 #import "HotelConfirmViewController.h"
 #import "SWRevealViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface HotelConfirmViewController ()
+{
+    UIImageView *indicatorBackground;
+    
+}
+@property(nonatomic,strong)UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
@@ -19,8 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.fromPickupLabel.text = self.receivedPickupSpot;
     
     
+    
+    //set side menu
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -28,6 +37,15 @@
         [self.sidebarButton setAction: @selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
+    
+    //set gesture for dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
 
     
 }
@@ -36,6 +54,64 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)activityIndicatorSetup{
+    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _indicator.center = self.view.center;
+    indicatorBackground = [[UIImageView alloc]init];
+    indicatorBackground.backgroundColor = [UIColor darkGrayColor];
+    indicatorBackground.alpha = 0.5;
+    [indicatorBackground setFrame:CGRectMake(self.view.center.x-20, self.view.center.y-20, 40, 40)];
+    indicatorBackground.layer.cornerRadius = 5;
+    indicatorBackground.layer.masksToBounds = YES;
+    [self.view addSubview:indicatorBackground];
+    [self.view addSubview:_indicator];
+}
+
+
+- (IBAction)confirmButtonPressed:(id)sender {
+    NSNumber *serialNumber = [[NSNumber alloc]initWithInt:arc4random()%100000000];
+    NSLog(@"%@",serialNumber);
+    //set indicator
+    [self activityIndicatorSetup];
+    [_indicator startAnimating];
+    self.view.userInteractionEnabled = NO;
+    
+    PFObject *delivery = [PFObject objectWithClassName:@"Delivery"];
+    delivery[@"PickupSpot"]  = _fromPickupLabel.text;
+    delivery[@"Destination"] = _hotelNametext.text;
+    delivery[@"AdditionalInfo"] = _reserveNameText.text;
+    delivery[@"status"] = @"pending";
+    delivery[@"BoardingORHotelTime"] = _hotelDate.date;
+    delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
+    delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
+    delivery[@"SerialNumber"] = serialNumber;
+    //delivery[@"toPhoneNumber"] = _phoneLabel.text;
+    [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"訂單已送出" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            NSLog(@"There was a problem, check error.description");
+        }
+    }];
+}
+
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)dismissKeyboard {
+    [_hotelNametext resignFirstResponder];
+    [_reserveNameText resignFirstResponder];
+}
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

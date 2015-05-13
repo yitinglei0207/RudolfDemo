@@ -14,6 +14,7 @@
 @property(nonatomic,strong)NSString *receivedPickupSpot;
 @property(nonatomic,strong)NSDictionary *sendingDic;
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *hotelDate;
 @property (weak, nonatomic) IBOutlet UILabel *fromPickupLabel;
 @property (weak, nonatomic) IBOutlet UITextField *hotelNametext;
 @property (weak, nonatomic) IBOutlet UITextField *reserveNameText;

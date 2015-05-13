@@ -19,10 +19,11 @@
     NSString *currentStatus;
     NSString *currentDestination;
     
-    NSDictionary *currentData;
-    NSMutableArray *trackDateArray;
-    NSMutableArray *addressArray;
-    NSMutableArray *statusArray;
+    PFObject *currentData;
+    NSMutableArray *deliveryList;
+//    NSMutableArray *trackDateArray;
+//    NSMutableArray *addressArray;
+//    NSMutableArray *statusArray;
 }
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
@@ -32,10 +33,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    addressArray = [[NSMutableArray alloc]init];
-    trackDateArray = [[NSMutableArray alloc]init];
-    statusArray = [[NSMutableArray alloc]init];
-    
+//    addressArray = [[NSMutableArray alloc]init];
+//    trackDateArray = [[NSMutableArray alloc]init];
+    deliveryList = [[NSMutableArray alloc]init];
+//    
     
     
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -74,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return addressArray.count;
+    return deliveryList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,17 +88,20 @@
     } else {
         NSLog(@"I have been initialize. Row = %li", (long)indexPath.row);
     }
+    
+    PFObject *tempDic = [deliveryList objectAtIndex:indexPath.row];
+    
     //========set date format and convert to string===============
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    NSString *strDate = [dateFormatter stringFromDate:[trackDateArray objectAtIndex:indexPath.row]];
+    NSString *strDate = [dateFormatter stringFromDate:tempDic.updatedAt];
     NSLog(@"%@", strDate);
     //============================================================
     
     
     cell.createdAtLabel.text = strDate;
-    cell.statusLabel.text = [statusArray objectAtIndex:indexPath.row];
-    cell.destinationLabel.text = [addressArray objectAtIndex:indexPath.row];
+    cell.statusLabel.text = [tempDic objectForKey:@"status"];
+    cell.destinationLabel.text = [tempDic objectForKey:@"Destination"];
     
     cell.backgroundColor =[UIColor clearColor];
     cell.destinationLabel.textColor = [UIColor grayColor];
@@ -106,15 +110,15 @@
     cell.createdAtLabel.textColor = [UIColor lightGrayColor];
     cell.createdAtLabel.font =[UIFont systemFontOfSize:14];
     
-    if ([cell.statusLabel.text isEqualToString: @"received"]) {
-        cell.statusLabel.textColor = [UIColor greenColor];
-    }
-    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
-        cell.statusLabel.textColor = [UIColor redColor];
-    }
-    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
-        cell.statusLabel.textColor = [UIColor blueColor];
-    }
+    //if ([cell.statusLabel.text isEqualToString: @"received"]) {
+        cell.statusLabel.textColor = [UIColor darkGrayColor];
+//    }
+//    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
+//        cell.statusLabel.textColor = [UIColor redColor];
+//    }
+//    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
+//        cell.statusLabel.textColor = [UIColor blueColor];
+//    }
     cell.statusLabel.font =[UIFont systemFontOfSize:14];
     
     return cell;
@@ -127,29 +131,15 @@
     PFQuery *trackQuery = [PFQuery queryWithClassName:@"Delivery"];
     //NSInteger trackNumber = [trackQuery countObjects];
     [trackQuery whereKey:@"Email" equalTo:[userInfo objectForKey:@"email"]];
-    [trackQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+    [trackQuery findObjectsInBackgroundWithBlock:^(NSArray *objectArray, NSError *error){
         if (!error) {
-            for (PFObject *object in objects) {
-                if ([object objectForKey:@"Destination"]!=nil) {
-                    [addressArray addObject:[object objectForKey:@"Destination"]];
-                }else{
-                    [addressArray addObject:@""];
-                }
-                if (object.createdAt != nil) {
-                    [trackDateArray addObject:object.createdAt];
-                }else{
-                    [trackDateArray addObject:@""];
-                }
-                if ([object objectForKey:@"status"]!= nil) {
-                    [statusArray addObject:[object objectForKey:@"status"]];
-                }else{
-                    [statusArray addObject:@""];
-                }
+            for (PFObject *object in objectArray) {
                 
-                
-                //NSLog(@"%@",trackDateArray);
+                [deliveryList addObject:object];
+           
+                NSLog(@"%@",object);
             }
-            NSLog(@"%@",trackDateArray);
+            //NSLog(@"%@",trackDateArray);
             [self.tableView reloadData];
         }else {
             // Log details of the failure
@@ -163,30 +153,31 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"checkStatusSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        currentData = [deliveryList objectAtIndex:indexPath.row];
+
         CheckStatusViewController *nextView = segue.destinationViewController;
         nextView.receivedDic = currentData;
     }
     
 }
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    NSString *strDate = [dateFormatter stringFromDate:[trackDateArray objectAtIndex:indexPath.row]];
-    //NSLog(@"%@", strDate);
-    currentCreatedAt = strDate;
-    currentDestination = addressArray[indexPath.row];
-    currentStatus = statusArray[indexPath.row];
-    
-    currentData = @{@"CreatedAt":currentCreatedAt ,
-                    @"Destination":currentDestination,
-                    @"Status":currentStatus};
-    
-    //CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
-    //checkVC.receivedDic = currentData;
-    //[self.navigationController presentViewController:checkVC animated:YES completion:nil];
-    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
-}
+//
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+////    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+////    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+////    NSString *strDate = [dateFormatter stringFromDate:[trackDateArray objectAtIndex:indexPath.row]];
+////    //NSLog(@"%@", strDate);
+////    currentCreatedAt = strDate;
+////    currentDestination = addressArray[indexPath.row];
+////    currentStatus = statusArray[indexPath.row];
+////    
+//    currentData = [deliveryList objectAtIndex:indexPath.row];
+//
+//    //CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
+//    //checkVC.receivedDic = currentData;
+//    //[self.navigationController presentViewController:checkVC animated:YES completion:nil];
+//    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
+//}
 //
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{

@@ -20,9 +20,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    //========set date format and convert to string===============
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *strDate = [dateFormatter stringFromDate:self.receivedDic.updatedAt];
+    NSLog(@"%@", strDate);
+    //============================================================
+    
+    self.fromLabel.text = [self.receivedDic objectForKey:@"PickupSpot"];
     self.destinationLabel.text = [self.receivedDic objectForKey:@"Destination"];
-    self.createdAtLabel.text = [self.receivedDic objectForKey:@"CreatedAt"];
-    self.statusLabel.text = [self.receivedDic objectForKey:@"Status"];
+    self.createdAtLabel.text = strDate;
+    self.statusLabel.text = [self.receivedDic objectForKey:@"status"];
+    self.additionalInfoContent.text = [self.receivedDic objectForKey:@"AdditionalInfo"];
+    
 }
 
 - (void)didReceiveMemoryWarning {

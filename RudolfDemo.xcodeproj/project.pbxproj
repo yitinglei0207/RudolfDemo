@@ -21,7 +21,6 @@
 		42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D854C21B01BBDA00C85468 /* RearViewController.m */; };
 		42DF99E91B01FB9600FF52B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */; };
 		42DF99EF1B02294400FF52B4 /* HotelConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */; };
-		42DF99F21B02350500FF52B4 /* TrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF99F11B02350500FF52B4 /* TrackTableViewController.m */; };
 		42E078471AF603B2000DF533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E078451AF603B2000DF533 /* Main.storyboard */; };
 		42E078491AF709A4000DF533 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E078481AF709A4000DF533 /* MapKit.framework */; };
 		42E0784F1AF76297000DF533 /* PickDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0784E1AF76297000DF533 /* PickDestinationViewController.m */; };
@@ -70,8 +69,6 @@
 		42DF99E81B01FB9600FF52B4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		42DF99ED1B02294400FF52B4 /* HotelConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelConfirmViewController.h; sourceTree = "<group>"; };
 		42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelConfirmViewController.m; sourceTree = "<group>"; };
-		42DF99F01B02350500FF52B4 /* TrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackTableViewController.h; sourceTree = "<group>"; };
-		42DF99F11B02350500FF52B4 /* TrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackTableViewController.m; sourceTree = "<group>"; };
 		42E078461AF603B2000DF533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RudolfDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E078481AF709A4000DF533 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E0784D1AF76297000DF533 /* PickDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDestinationViewController.h; sourceTree = "<group>"; };
@@ -204,8 +201,6 @@
 				421A46AB1AFCB2BD00141B7F /* TrackingTableViewCell.m */,
 				42D485881AFCD98400D16EAE /* CheckStatusViewController.h */,
 				42D485891AFCD98400D16EAE /* CheckStatusViewController.m */,
-				42DF99F01B02350500FF52B4 /* TrackTableViewController.h */,
-				42DF99F11B02350500FF52B4 /* TrackTableViewController.m */,
 			);
 			name = TrackingBranch;
 			sourceTree = "<group>";
@@ -364,7 +359,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42DF99F21B02350500FF52B4 /* TrackTableViewController.m in Sources */,
 				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
 				42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */,
