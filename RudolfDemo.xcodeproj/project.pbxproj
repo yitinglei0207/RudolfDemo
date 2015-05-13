@@ -27,6 +27,7 @@
 		42E078521AF77C4F000DF533 /* AirportConfirmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078511AF77C4F000DF533 /* AirportConfirmController.m */; };
 		42E078581AF86429000DF533 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078571AF86429000DF533 /* MyAnnotation.m */; };
 		42E078C71AFA20B4000DF533 /* TrackingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E078C61AFA20B4000DF533 /* TrackingTableViewController.m */; };
+		42EA69461B039FB900E67243 /* AboutWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EA69451B039FB900E67243 /* AboutWebViewController.m */; };
 		D4CBB7EDB12E3488CDCAD70F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21272BC2987437B49D168F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		42E078901AF8D140000DF533 /* pickerViewApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pickerViewApplication.h; sourceTree = "<group>"; };
 		42E078C51AFA20B4000DF533 /* TrackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingTableViewController.h; sourceTree = "<group>"; };
 		42E078C61AFA20B4000DF533 /* TrackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingTableViewController.m; sourceTree = "<group>"; };
+		42EA69441B039FB900E67243 /* AboutWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWebViewController.h; sourceTree = "<group>"; };
+		42EA69451B039FB900E67243 /* AboutWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWebViewController.m; sourceTree = "<group>"; };
 		BF03C6B3DA107E6C7659DDC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC21272BC2987437B49D168F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +145,8 @@
 				42E078C41AFA2070000DF533 /* TrackingBranch */,
 				4212E43E1AEA0DDF004F136C /* Supporting Files */,
 				42E078C31AFA205D000DF533 /* NewDeliveryBranch */,
+				42EA69441B039FB900E67243 /* AboutWebViewController.h */,
+				42EA69451B039FB900E67243 /* AboutWebViewController.m */,
 			);
 			path = RudolfDemo;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				4212E4471AEA0DDF004F136C /* LoginViewController.m in Sources */,
 				4212E4441AEA0DDF004F136C /* AppDelegate.m in Sources */,
 				42D854C31B01BBDA00C85468 /* RearViewController.m in Sources */,
+				42EA69461B039FB900E67243 /* AboutWebViewController.m in Sources */,
 				42D4858A1AFCD98400D16EAE /* CheckStatusViewController.m in Sources */,
 				42E078C71AFA20B4000DF533 /* TrackingTableViewController.m in Sources */,
 				42E078581AF86429000DF533 /* MyAnnotation.m in Sources */,

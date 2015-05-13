@@ -16,7 +16,7 @@
 
 @implementation RearViewController
 
-@synthesize rearTableView = _rearTableView;
+//@synthesize rearTableView = _rearTableView;
 
 
 #pragma mark - View lifecycle
@@ -91,7 +91,7 @@
     }
     else if (row == 2)
     {
-        [revealController setFrontViewPosition:FrontViewPositionRightMost animated:YES];
+        [revealController setFrontViewPosition:FrontViewPositionLeft animated:YES];
         return;
     }
     else if (row == 3)
