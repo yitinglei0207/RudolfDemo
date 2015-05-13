@@ -9,9 +9,13 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK.h>
 #import "LoginViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface LoginViewController ()
-
+{
+    UIImageView *indicatorBackground;
+}
+@property(nonatomic,strong)UIActivityIndicatorView *indicator;
 @end
 
 @implementation LoginViewController
@@ -19,15 +23,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)activityIndicatorSetup{
+    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _indicator.center = self.view.center;
+    indicatorBackground = [[UIImageView alloc]init];
+    indicatorBackground.backgroundColor = [UIColor darkGrayColor];
+    indicatorBackground.alpha = 0.5;
+    [indicatorBackground setFrame:CGRectMake(self.view.center.x-20, self.view.center.y-20, 40, 40)];
+    indicatorBackground.layer.cornerRadius = 5;
+    indicatorBackground.layer.masksToBounds = YES;
+    [self.view addSubview:indicatorBackground];
+    [self.view addSubview:_indicator];
+}
+
 - (IBAction)fbLogin:(id)sender {
     NSArray *permissionArray = @[ @"user_about_me", @"user_birthday",@"email"];
     //NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [self activityIndicatorSetup];
+    [_indicator startAnimating];
+    self.view.userInteractionEnabled = NO;
+    
     [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error){
         if(!user){
             //login failed
@@ -60,6 +85,9 @@
             [self presentViewController:menuViewController animated:YES completion:nil];
             
         }
+        [_indicator stopAnimating];
+        [indicatorBackground removeFromSuperview];
+        
     }];
 }
 

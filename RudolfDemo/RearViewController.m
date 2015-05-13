@@ -119,20 +119,20 @@
 //        [self presentViewController:trackingTableViewController animated:YES completion:nil];
 //        
 //    }
-    UIViewController *newFrontController = nil;
-    
-    if (row == 0)
-    {
-        newFrontController = [[MapViewController alloc] init];
-    }
-    
-    else if (row == 1)
-    {
-        newFrontController = [[TrackingTableViewController alloc] init];
-    }
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-    [revealController pushFrontViewController:navigationController animated:YES];
+//    UIViewController *newFrontController = nil;
+//    
+//    if (row == 0)
+//    {
+//        newFrontController = [[MapViewController alloc] init];
+//    }
+//    
+//    else if (row == 1)
+//    {
+//        newFrontController = [[TrackingTableViewController alloc] init];
+//    }
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
+//    [revealController pushFrontViewController:navigationController animated:YES];
     
     
     

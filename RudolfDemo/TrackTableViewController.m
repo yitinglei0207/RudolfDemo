@@ -106,15 +106,15 @@
     cell.createdAtLabel.textColor = [UIColor lightGrayColor];
     cell.createdAtLabel.font =[UIFont systemFontOfSize:14];
     
-    if ([cell.statusLabel.text isEqualToString: @"received"]) {
-        cell.statusLabel.textColor = [UIColor greenColor];
-    }
-    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
-        cell.statusLabel.textColor = [UIColor redColor];
-    }
-    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
-        cell.statusLabel.textColor = [UIColor blueColor];
-    }
+    //if ([cell.statusLabel.text isEqualToString: @"received"]) {
+    cell.statusLabel.textColor = [UIColor darkGrayColor];
+//    }
+//    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
+//        cell.statusLabel.textColor = [UIColor redColor];
+//    }
+//    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
+//        cell.statusLabel.textColor = [UIColor blueColor];
+//    }
     cell.statusLabel.font =[UIFont systemFontOfSize:14];
     
     return cell;
