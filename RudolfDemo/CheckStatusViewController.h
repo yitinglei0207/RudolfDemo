@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *destinationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UIButton *qrCodeScan;
 @property (nonatomic,strong) PFObject *receivedDic;
 @end

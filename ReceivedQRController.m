@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 AlphaCamp. All rights reserved.
 //
 
-
+#import <Parse.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ReceivedQRController.h"
+#import "TrackingTableViewController.h"
 
 @interface ReceivedQRController ()
 @property (nonatomic) BOOL isReading;
@@ -25,6 +26,10 @@
     
     _isReading = NO;
     _captureSession = nil;
+    [self startReading];
+}
+-(void) viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 
@@ -93,6 +98,30 @@
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             [_startScan performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start!" waitUntilDone:NO];
             _isReading = NO;
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"Delivery"];
+
+            // Retrieve the object by id
+            [query getObjectInBackgroundWithId:self.deliveryToBeUpdate.objectId
+                                         block:^(PFObject *delivery, NSError *error) {
+                                             // Now let's update it with some new data. In this case, only cheatMode and score
+                                             // will get sent to the cloud. playerName hasn't changed.
+                                             if (!error) {
+                                                 delivery[@"QRcodeSerial"] = _lblStatus.text;
+                                                 delivery[@"status"] = @"received";
+                                                 [delivery saveInBackground];
+                                                 
+                                                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"狀態已更新" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                                                 [alert show];
+                                                 [self.navigationController popToRootViewControllerAnimated:YES];
+                                             } else {
+                                                 NSLog(@"There was a problem, check error.description");
+                                             }
+                                             
+                                         }];
+
+            
+            
         }
     }
 }

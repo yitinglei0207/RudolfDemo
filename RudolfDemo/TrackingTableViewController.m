@@ -21,9 +21,7 @@
     
     PFObject *currentData;
     NSMutableArray *deliveryList;
-//    NSMutableArray *trackDateArray;
-//    NSMutableArray *addressArray;
-//    NSMutableArray *statusArray;
+
 }
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
@@ -48,13 +46,14 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
 
-    [self startQuery];
+    //[self startQuery];
     
     
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO];
-    
+    [deliveryList removeAllObjects];
+    [self startQuery];
 }
 
 - (void)didReceiveMemoryWarning {

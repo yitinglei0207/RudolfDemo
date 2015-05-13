@@ -139,8 +139,6 @@
 				42E078451AF603B2000DF533 /* Main.storyboard */,
 				42D854C11B01BBDA00C85468 /* RearViewController.h */,
 				42D854C21B01BBDA00C85468 /* RearViewController.m */,
-				42D854BC1B007EBD00C85468 /* ReceivedQRController.h */,
-				42D854BD1B007EBD00C85468 /* ReceivedQRController.m */,
 				42E078C41AFA2070000DF533 /* TrackingBranch */,
 				4212E43E1AEA0DDF004F136C /* Supporting Files */,
 				42E078C31AFA205D000DF533 /* NewDeliveryBranch */,
@@ -195,6 +193,8 @@
 		42E078C41AFA2070000DF533 /* TrackingBranch */ = {
 			isa = PBXGroup;
 			children = (
+				42D854BC1B007EBD00C85468 /* ReceivedQRController.h */,
+				42D854BD1B007EBD00C85468 /* ReceivedQRController.m */,
 				42E078C51AFA20B4000DF533 /* TrackingTableViewController.h */,
 				42E078C61AFA20B4000DF533 /* TrackingTableViewController.m */,
 				421A46AA1AFCB2BD00141B7F /* TrackingTableViewCell.h */,

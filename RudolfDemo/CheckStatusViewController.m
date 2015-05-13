@@ -7,6 +7,7 @@
 //
 
 #import "CheckStatusViewController.h"
+#import "ReceivedQRController.h"
 
 @interface CheckStatusViewController ()
 
@@ -33,24 +34,42 @@
     self.statusLabel.text = [self.receivedDic objectForKey:@"status"];
     self.additionalInfoContent.text = [self.receivedDic objectForKey:@"AdditionalInfo"];
     
+    if ([[self.receivedDic objectForKey:@"status"] isEqualToString:@"pending"]) {
+        UIButton *qrCodeScanButton = [UIButton buttonWithType:UIButtonTypeSystem ];
+        [qrCodeScanButton setTitle:@"Scan QR Code" forState:UIControlStateNormal];
+        qrCodeScanButton.frame = CGRectMake(16, self.view.frame.size.height - 60, self.view.frame.size.width-32, 44);
+        [qrCodeScanButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        qrCodeScanButton.backgroundColor = [UIColor darkGrayColor];
+        [qrCodeScanButton addTarget:self action:@selector(qrCodeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:qrCodeScanButton];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)backButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//- (IBAction)backButtonPressed:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+- (void)qrCodeButtonPressed{
+    [self performSegueWithIdentifier:@"ScanQRcodeSegue" sender:self];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ReceivedQRController *nextView = segue.destinationViewController;
+    nextView.deliveryToBeUpdate = self.receivedDic;
+}
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

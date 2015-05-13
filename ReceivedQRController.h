@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
 @interface ReceivedQRController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *previewCode;
 @property (weak, nonatomic) IBOutlet UIButton *startScan;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (strong, nonatomic) PFObject *deliveryToBeUpdate;
 
 @end
