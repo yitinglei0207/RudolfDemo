@@ -145,15 +145,7 @@
     }
 }
 
-- (void)selectButtonPressed:(UIButton *)button {
-    NSLog(@"Button Pressed");
-    _destinationText.text = pickerArray[pickerIndex];
-    [_destinationText resignFirstResponder];
-}
 
--(void)dismissKeyboard {
-    [_destinationText resignFirstResponder];
-}
 - (IBAction)backButtonPressed:(id)sender {
         [self.navigationController popViewControllerAnimated:YES];
 }

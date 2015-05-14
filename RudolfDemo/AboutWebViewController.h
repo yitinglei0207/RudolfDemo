@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutWebViewController : UIViewController
+@interface AboutWebViewController : UIViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *aboutWeb;
 
 

@@ -32,6 +32,7 @@
     
     pickerArray = @[@"松山機場",@"桃園國際機場"];
     pickerTerminal = @[@"第一航廈",@"第二航廈"];
+    
     // Do any additional setup after loading the view.
     self.fromPickupLabel.text = self.receivedPickupSpot;
     
@@ -82,8 +83,7 @@
     
 }
 
-
-- (IBAction)confirmButtonPressed:(id)sender {
+- (void)sendingDelivery{
     NSNumber *serialNumber = [[NSNumber alloc]initWithInt:arc4random()%100000000];
     NSLog(@"%@",serialNumber);
     
@@ -101,6 +101,7 @@
     delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
     delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
     delivery[@"SerialNumber"] = serialNumber;
+    delivery[@"assign"] = @"000001";
     //delivery[@"toPhoneNumber"] = _phoneLabel.text;
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -112,11 +113,25 @@
             NSLog(@"There was a problem, check error.description");
         }
     }];
+
 }
-//- (IBAction)confirmButton:(id)sender {
-//
-//
-//}
+
+
+- (IBAction)confirmButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"確認呼叫Rudolf?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+    
+    }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        
+    }else{
+        [self sendingDelivery];
+    }
+}
+
+
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

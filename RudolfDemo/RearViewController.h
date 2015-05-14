@@ -3,7 +3,6 @@
 
 @interface RearViewController : UITableViewController
 
-//@property (nonatomic, retain) IBOutlet UITableView *rearTableView;
 
 
 @end

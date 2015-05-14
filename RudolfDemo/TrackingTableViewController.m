@@ -14,15 +14,14 @@
 
 @interface TrackingTableViewController ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
 {
-    //NSString *username;
     NSString *currentCreatedAt;
     NSString *currentStatus;
     NSString *currentDestination;
-    
     PFObject *currentData;
     NSMutableArray *deliveryList;
-
+    UIImageView *indicatorBackground;
 }
+@property(nonatomic,strong)UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
 
@@ -31,11 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    addressArray = [[NSMutableArray alloc]init];
-//    trackDateArray = [[NSMutableArray alloc]init];
+
     deliveryList = [[NSMutableArray alloc]init];
-//    
-    
     
     SWRevealViewController *revealViewController = self.revealViewController;
     
@@ -46,9 +42,7 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
 
-    //[self startQuery];
-    
-    
+
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO];
@@ -56,21 +50,43 @@
     [self startQuery];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
+- (void)activityStart{
+    [self activityIndicatorSetup];
+    [_indicator startAnimating];
+}
+
+- (void)activityStop{
+    [_indicator stopAnimating];
+    [indicatorBackground removeFromSuperview];
+}
+
+
+- (void)activityIndicatorSetup{
+    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _indicator.center = self.view.center;
+    indicatorBackground = [[UIImageView alloc]init];
+    indicatorBackground.backgroundColor = [UIColor darkGrayColor];
+    indicatorBackground.alpha = 0.5;
+    [indicatorBackground setFrame:CGRectMake(self.view.center.x-25, self.view.center.y-25, 50, 50)];
+    indicatorBackground.layer.cornerRadius = 5;
+    indicatorBackground.layer.masksToBounds = YES;
+    [self.view addSubview:indicatorBackground];
+    [self.view addSubview:_indicator];
+}
+
+#pragma tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return ;
-//}
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -93,7 +109,7 @@
     //========set date format and convert to string===============
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    NSString *strDate = [dateFormatter stringFromDate:tempDic.updatedAt];
+    NSString *strDate = [dateFormatter stringFromDate:tempDic.createdAt];
     NSLog(@"%@", strDate);
     //============================================================
     
@@ -107,28 +123,35 @@
     cell.destinationLabel.font =[UIFont systemFontOfSize:15];
     
     cell.createdAtLabel.textColor = [UIColor lightGrayColor];
-    cell.createdAtLabel.font =[UIFont systemFontOfSize:14];
+    cell.createdAtLabel.font =[UIFont systemFontOfSize:15];
     
-    //if ([cell.statusLabel.text isEqualToString: @"received"]) {
+    if ([cell.statusLabel.text isEqualToString: @"received"]) {
         cell.statusLabel.textColor = [UIColor darkGrayColor];
-//    }
-//    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
-//        cell.statusLabel.textColor = [UIColor redColor];
-//    }
-//    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
-//        cell.statusLabel.textColor = [UIColor blueColor];
-//    }
-    cell.statusLabel.font =[UIFont systemFontOfSize:14];
+        //cell.statusLabel.font = [UIFont ]
+    }
+    else if ([cell.statusLabel.text  isEqualToString: @"pending"]) {
+        cell.statusLabel.textColor = [UIColor blackColor];
+        cell.statusLabel.font = [UIFont boldSystemFontOfSize:15];
+    }
+    else if ([cell.statusLabel.text  isEqualToString: @"arrival"]) {
+        cell.statusLabel.textColor = [UIColor lightGrayColor];
+    }
+    cell.statusLabel.font =[UIFont systemFontOfSize:15];
     
     return cell;
 }
 
 - (void)startQuery{
+    //set the indicator
+    
+    [self activityStart];
     
     NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
     //query for number of events
     PFQuery *trackQuery = [PFQuery queryWithClassName:@"Delivery"];
-    //NSInteger trackNumber = [trackQuery countObjects];
+    
+    [trackQuery orderByDescending:@"createdAt"];
+    
     [trackQuery whereKey:@"Email" equalTo:[userInfo objectForKey:@"email"]];
     [trackQuery findObjectsInBackgroundWithBlock:^(NSArray *objectArray, NSError *error){
         if (!error) {
@@ -144,8 +167,7 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        
-        
+        [self activityStop];
     }];
 }
 
@@ -160,34 +182,7 @@
     }
     
 }
-//
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-////    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-////    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-////    NSString *strDate = [dateFormatter stringFromDate:[trackDateArray objectAtIndex:indexPath.row]];
-////    //NSLog(@"%@", strDate);
-////    currentCreatedAt = strDate;
-////    currentDestination = addressArray[indexPath.row];
-////    currentStatus = statusArray[indexPath.row];
-////    
-//    currentData = [deliveryList objectAtIndex:indexPath.row];
-//
-//    //CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
-//    //checkVC.receivedDic = currentData;
-//    //[self.navigationController presentViewController:checkVC animated:YES completion:nil];
-//    [self performSegueWithIdentifier:@"checkStatusSegue" sender:self];
-//}
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    // Make sure your segue name in storyboard is the same as this line
-//    if ([[segue identifier] isEqualToString:@"checkStatusSegue"])
-//    {
-//        //if you need to pass data to the next controller do it here
-////        CheckStatusViewController *checkVC = [self.storyboard instantiateViewControllerWithIdentifier:@"checkStatusVC"];
-//        
-//    }
-//}
+
 
 @end
 

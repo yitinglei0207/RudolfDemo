@@ -36,15 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    SWRevealViewController *revealController = [self revealViewController];
-//    
-//    [self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
-//    
-//    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
-//                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
-//    
-//    self.navigationItem.leftBarButtonItem = revealButtonItem;
-//    
+  
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -52,9 +44,6 @@
         [self.sidebarButton setAction: @selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-//
-    
-    
     
     // Do any additional setup after loading the view.
     locationManager = [[CLLocationManager alloc]init];
@@ -71,7 +60,7 @@
     pinImage = [UIImage  imageNamed:@"pin"];
     
     //set initial map span to Taipei city
-    [self.map setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.04536, 121.54195), 11400, 11400)animated:YES];
+    [self.map setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.022136, 121.547977), 11000, 11000)animated:YES];
     [self addAnnotation];
     
 }
@@ -83,57 +72,14 @@
 
 
 - (void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    //get the coordinate
-    
-    //NSLog(@"location latitude:%f longitude:%f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
-    
-    //NSLog(@"accuracy:%f",userLocation.location.horizontalAccuracy);
     
     //set the zoom effect
     if (isFirstGetLocation== NO) {
         isFirstGetLocation = YES;
         //zoom into user location in 400m*400m
-
-        //MKCoordinateRegion mapRegion;
-        //        mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
-        //        mapRegion.center.latitude  = ( 25.033408 + mapView.userLocation.coordinate.latitude)/2;
-        //        mapRegion.center.longitude = (121.564009 + mapView.userLocation.coordinate.longitude)/2;
-        //
-        //        MKCoordinateSpan mapspan;
-        //        mapspan.latitudeDelta = ABS(25.033408 - userLocation.location.coordinate.latitude)*1.5;
-        //        mapspan.longitudeDelta = ABS(121.564009 - userLocation.location.coordinate.longitude)*1.5;
-        //        mapRegion.span = mapspan;
-        //
-        
         [mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400) animated: YES];
     }
-    
-    
-    //    double delayInSeconds = 1.0;
-    //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    //
-    //        //UIImage *rudolfImage = [UIImage imageNamed:@"AppLogo"];
-    //        UILabel *estimationTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 160, 20)];
-    //        estimationTimeLabel.text = [NSString stringWithFormat:@"%d Minutes",estimateTimeOfPickup];
-    //        estimationTimeLabel.textColor = [UIColor darkGrayColor];
-    //
-    //        estimationTimeLabel.backgroundColor = [UIColor yellowColor];
-    //        UIView *rudolfEstimationView = [[UIView alloc]initWithFrame:CGRectMake(self.map.frame.size.width/2 - 100, self.map.frame.size.height/2 - 20, 200, 20)];
-    //        [rudolfEstimationView addSubview:estimationTimeLabel];
-    //
-    //
-    //
-    //        UIImage *pinImage = [UIImage  imageNamed:@"pin"];
-    //        UIImageView *pinView = [[UIImageView alloc]initWithImage:pinImage];
-    //        [pinView setCenter:CGPointMake(self.map.frame.size.width/2, self.map.frame.size.height/2)];
-    //
-    //        [pinView setFrame:CGRectMake(self.map.frame.size.width/2 - 13, self.map.frame.size.height/2 + 26, 26, 26)];
-    //        [self.view addSubview:pinView];
-    //        [self.view addSubview:rudolfEstimationView];
 }
-//
-
 
 
 - (IBAction)selectPostionButtonPressed:(id)sender {
@@ -155,7 +101,7 @@
     [self.geoCoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
         if(error == nil && placemarks.count > 0){
             CLPlacemark *placeMark = placemarks[0];
-            //NSLog(@"location: %f %f",placeMark.location.coordinate.latitude,placeMark.location.coordinate.longitude);
+            
         }
         else{
             NSLog(@"%@", error);
@@ -190,25 +136,30 @@
 
 -(void) addAnnotation{
     // set rudolf location
-    currentAnnotation = [[MyAnnotation alloc]initWithCoordinate:CLLocationCoordinate2DMake(25.033408, 121.564009) title:@"Rudolf" subtitle:@"Location"];
+    currentAnnotation = [[MyAnnotation alloc]initWithCoordinate:CLLocationCoordinate2DMake(25.022136, 121.547977) title:@"Rudolf" subtitle:@"Location"];
     [self.map addAnnotation:currentAnnotation];
     
 }
 
 -(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     MKPinAnnotationView *annoView;
+    
     if ([annotation isKindOfClass:[MyAnnotation class]]) {
         annoView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin" ];
         if(annoView == nil){
             annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"Pin"];
             annoView.pinColor = MKPinAnnotationColorGreen;
             annoView.canShowCallout = YES;
+            //set custom pin logo
+            annoView.highlighted = NO;
+            annoView.image = [UIImage imageNamed:@"AppLogo"];
             
             annoView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             annoView.draggable = YES;
             
         }
     }
+
     return annoView;
 }
 
@@ -218,7 +169,7 @@
 }
 
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    NSLog(@"chage map View");
+    //NSLog(@"chage map View");
     _mapCenter = [[CLLocation alloc]initWithLatitude:self.map.centerCoordinate.latitude longitude:self.map.centerCoordinate.longitude];
     
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
@@ -243,13 +194,11 @@
         NSLog(@"%d",(int)response.expectedTravelTime/60);
         estimateTimeOfPickup = (int)response.expectedTravelTime/60;
         
-        
-        double delayInSeconds = 0.5;
+        double delayInSeconds = 0.9;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
             estimationTimeLabel.text = [NSString stringWithFormat:@"%d min",estimateTimeOfPickup];
-
             
             if (pinView == nil) {
                 pinView = [[UIImageView alloc]initWithImage:pinImage];
@@ -261,40 +210,13 @@
             }
             
             
-            //[self.view addSubview:rudolfEstimationView];
-            
         });
     }];
-    //[request calculateETAWithCompletionHandler:];
     
 }
 
-/*
- - (void)mapView:(MKMapView *)mapViewregionDidChange Animated:(BOOL)animated{
- CLLocationCoordinate2D center = self.map.centerCoordinate;
- CLLocation *location = [[CLLocation alloc] initWithLatitude:center.latitude longitude:center.longitude];
- currentAnnotation.coordinate = location.coordinate;
- 
- 
- //CLLocation *plocation = [[CLLocation alloc] initWithLatitude:currentAnnotation.coordinate.latitude longitude:currentAnnotation.coordinate.longitude];
- 
- //pinLocation = plocation;
- //    [_geoCoder reverseGeocodeLocation:plocation completionHandler:
- //     ^(NSArray *placemarks, NSError *error) {
- //         if(error ==nil && [placemarks count] > 0){
- //             placemark = [placemarks lastObject];
- //             //self.addressField.hidden = NO;
- //             //self.addressField.text = [NSString stringWithFormat:@"%@ %@, %@",  placemark.thoroughfare, placemark.subThoroughfare, placemark.locality];
- //             //NSLog(@"thoroughfare %@, subThoroughfare %@, locality %@", placemark.thoroughfare, placemark.subThoroughfare, placemark.locality);
- //             //NSString *undesired = @"(null)";
- //             //NSString *desired   = @"";
- //
- //             //self.addressField.text = [self.addressField.text stringByReplacingOccurrencesOfString:undesired withString:desired];
- //
- //         }
- //     }];
- }
- */
+
+
 /*
  #pragma mark - Navigation
  

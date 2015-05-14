@@ -78,7 +78,6 @@
 		42E078511AF77C4F000DF533 /* AirportConfirmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportConfirmController.m; sourceTree = "<group>"; };
 		42E078561AF86429000DF533 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		42E078571AF86429000DF533 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
-		42E078901AF8D140000DF533 /* pickerViewApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pickerViewApplication.h; sourceTree = "<group>"; };
 		42E078C51AFA20B4000DF533 /* TrackingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingTableViewController.h; sourceTree = "<group>"; };
 		42E078C61AFA20B4000DF533 /* TrackingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingTableViewController.m; sourceTree = "<group>"; };
 		42EA69441B039FB900E67243 /* AboutWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWebViewController.h; sourceTree = "<group>"; };
@@ -184,7 +183,6 @@
 				4212E46E1AEA131C004F136C /* MapViewController.m */,
 				42E0784D1AF76297000DF533 /* PickDestinationViewController.h */,
 				42E0784E1AF76297000DF533 /* PickDestinationViewController.m */,
-				42E078901AF8D140000DF533 /* pickerViewApplication.h */,
 				42DF99ED1B02294400FF52B4 /* HotelConfirmViewController.h */,
 				42DF99EE1B02294400FF52B4 /* HotelConfirmViewController.m */,
 				42E078501AF77C4F000DF533 /* AirportConfirmController.h */,

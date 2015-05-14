@@ -41,14 +41,27 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)moreButton:(id)sender {
-    BOOL result = [[UIApplication sharedApplication] openURL:
-                   [NSURL URLWithString:@"http://therudolf.weebly.com"]];
-
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"即將開啟瀏覽器" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 - (IBAction)callUsButton:(id)sender {
-    BOOL result = [[UIApplication sharedApplication] openURL:
-                   [NSURL URLWithString:@"tel://0931677890"]];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"撥打電話給Rudolf" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
     //call james
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        
+    }else{
+        if ([alertView.title isEqualToString:@"即將開啟瀏覽器"]) {
+            BOOL open = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://therudolf.weebly.com"]];
+        }else if([alertView.title isEqualToString:@"撥打電話給Rudolf"]){
+            BOOL call = [[UIApplication sharedApplication] openURL:
+             [NSURL URLWithString:@"tel://0989586794"]];
+        }
+        
+    }
 }
 
 /*

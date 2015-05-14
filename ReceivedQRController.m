@@ -70,7 +70,7 @@
     dispatchQueue = dispatch_queue_create("myQueue", NULL);
     [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
     [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
-
+    
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [_videoPreviewLayer setFrame:_previewCode.layer.bounds];
@@ -100,17 +100,16 @@
             _isReading = NO;
             
             PFQuery *query = [PFQuery queryWithClassName:@"Delivery"];
-
+            
             // Retrieve the object by id
             [query getObjectInBackgroundWithId:self.deliveryToBeUpdate.objectId
                                          block:^(PFObject *delivery, NSError *error) {
-                                             // Now let's update it with some new data. In this case, only cheatMode and score
-                                             // will get sent to the cloud. playerName hasn't changed.
+                                             
                                              if (!error) {
                                                  delivery[@"QRcodeSerial"] = _lblStatus.text;
                                                  delivery[@"status"] = @"received";
                                                  [delivery saveInBackground];
-                                                 
+                                                 //========show Alert===========
                                                  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"狀態已更新" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                                                  [alert show];
                                                  [self.navigationController popToRootViewControllerAnimated:YES];
@@ -119,10 +118,13 @@
                                              }
                                              
                                          }];
-
+            
             
             
         }
     }
+}
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

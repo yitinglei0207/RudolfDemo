@@ -90,11 +90,6 @@
     }];
 }
 
-//- (IBAction)fbLogout:(id)sender {
-//    [PFUser logOut];
-//    NSLog(@"logged out");
-//}
-
 -(void) saveUserDataToParse
 {
     FBRequest *request = [FBRequest requestForMe];

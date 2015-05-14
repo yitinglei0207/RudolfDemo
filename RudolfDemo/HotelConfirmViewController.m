@@ -61,7 +61,7 @@
     indicatorBackground = [[UIImageView alloc]init];
     indicatorBackground.backgroundColor = [UIColor darkGrayColor];
     indicatorBackground.alpha = 0.5;
-    [indicatorBackground setFrame:CGRectMake(self.view.center.x-20, self.view.center.y-20, 40, 40)];
+    [indicatorBackground setFrame:CGRectMake(self.view.center.x-25, self.view.center.y-25, 50, 50)];
     indicatorBackground.layer.cornerRadius = 5;
     indicatorBackground.layer.masksToBounds = YES;
     [self.view addSubview:indicatorBackground];
@@ -70,6 +70,20 @@
 
 
 - (IBAction)confirmButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"確認呼叫Rudolf?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        
+    }else{
+        [self sendingDelivery];
+    }
+}
+
+- (void)sendingDelivery{
     NSNumber *serialNumber = [[NSNumber alloc]initWithInt:arc4random()%100000000];
     NSLog(@"%@",serialNumber);
     //set indicator
@@ -79,14 +93,23 @@
     
     PFObject *delivery = [PFObject objectWithClassName:@"Delivery"];
     delivery[@"PickupSpot"]  = _fromPickupLabel.text;
-    delivery[@"Destination"] = _hotelNametext.text;
-    delivery[@"AdditionalInfo"] = _reserveNameText.text;
+    if (_hotelNametext.text) {
+        delivery[@"Destination"] = _hotelNametext.text;
+    }else{
+        delivery[@"Destination"] = @"";
+    }
+    if (_reserveNameText.text) {
+        delivery[@"AdditionalInfo"] = _reserveNameText.text;
+    }else{
+        delivery[@"AdditionalInfo"] = @"";
+    }
+    
     delivery[@"status"] = @"pending";
     delivery[@"BoardingORHotelTime"] = _hotelDate.date;
     delivery[@"Username"] = [[PFUser currentUser] objectForKey:@"name"];
     delivery[@"Email"] = [[PFUser currentUser] objectForKey:@"email"];
     delivery[@"SerialNumber"] = serialNumber;
-    //delivery[@"toPhoneNumber"] = _phoneLabel.text;
+    delivery[@"assign"] = @"000001";
     [delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             

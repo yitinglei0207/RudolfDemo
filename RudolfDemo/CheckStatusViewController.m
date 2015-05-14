@@ -18,9 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setUpNavigationBarButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
     //========set date format and convert to string===============
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -37,7 +39,7 @@
     if ([[self.receivedDic objectForKey:@"status"] isEqualToString:@"pending"]) {
         UIButton *qrCodeScanButton = [UIButton buttonWithType:UIButtonTypeSystem ];
         [qrCodeScanButton setTitle:@"Scan QR Code" forState:UIControlStateNormal];
-        qrCodeScanButton.frame = CGRectMake(16, self.view.frame.size.height - 60, self.view.frame.size.width-32, 44);
+        qrCodeScanButton.frame = CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44);
         [qrCodeScanButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         qrCodeScanButton.backgroundColor = [UIColor darkGrayColor];
         [qrCodeScanButton addTarget:self action:@selector(qrCodeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -46,13 +48,25 @@
     }
 }
 
+- (void)setUpNavigationBarButtons
+{
+    UIImage *leftIcon = [[UIImage imageNamed:@"left207"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:leftIcon
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(goBack:)];
+    [leftButton setImageInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
+-(void)goBack:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//- (IBAction)backButtonPressed:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 
 - (void)qrCodeButtonPressed{
     [self performSegueWithIdentifier:@"ScanQRcodeSegue" sender:self];
