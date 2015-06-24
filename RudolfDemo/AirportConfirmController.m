@@ -119,7 +119,10 @@
             
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"訂單已送出" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            });
         } else {
             NSLog(@"There was a problem, check error.description");
         }

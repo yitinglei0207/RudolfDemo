@@ -213,8 +213,11 @@
 //                [arrivalMutableArray addObject:object];
 //            }
 //        }
-        [self.trackingTable reloadData];
-        [self activityStop];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.trackingTable reloadData];
+            [self activityStop];
+        });
+        
         
     }];
 }

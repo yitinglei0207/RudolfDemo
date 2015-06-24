@@ -10,14 +10,14 @@
 	<string>RudolfDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B87AB8EFF67DED0D95452D9796EFD214EF7FCF79</key>
+		<key>F3E68FA29DD937D340DBF46481D2AAB82F7BEFDE</key>
 		<string>github.com:yitinglei0207/RudolfDemo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RudolfDemo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B87AB8EFF67DED0D95452D9796EFD214EF7FCF79</key>
+		<key>F3E68FA29DD937D340DBF46481D2AAB82F7BEFDE</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B87AB8EFF67DED0D95452D9796EFD214EF7FCF79</string>
+	<string>F3E68FA29DD937D340DBF46481D2AAB82F7BEFDE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B87AB8EFF67DED0D95452D9796EFD214EF7FCF79</string>
+			<string>F3E68FA29DD937D340DBF46481D2AAB82F7BEFDE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RudolfDemo</string>
 		</dict>

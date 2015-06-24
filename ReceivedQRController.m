@@ -110,9 +110,13 @@
                                                  delivery[@"status"] = @"received";
                                                  [delivery saveInBackground];
                                                  //========show Alert===========
-                                                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"狀態已更新" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                                                 [alert show];
-                                                 [self.navigationController popToRootViewControllerAnimated:YES];
+                                                 
+                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"狀態已更新" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                                                     [alert show];
+                                                     [self.navigationController popToRootViewControllerAnimated:YES];
+                                                 });
+                                                 
                                              } else {
                                                  NSLog(@"There was a problem, check error.description");
                                              }
